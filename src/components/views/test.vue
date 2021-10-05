@@ -20,10 +20,10 @@ export default {
             price:50,
             message:null,
             editor: ClassicEditor,
-            editorData: '<p>.</p>',
-            editorConfig: {
-                extraPlugins: [ this.MyCustomUploadAdapterPlugin ], 
-            }
+                editorData: '<p>.</p>',
+                editorConfig: {
+                    extraPlugins: [this.MyCustomUploadAdapterPlugin],
+                }
         }
     },
     methods :{
@@ -44,7 +44,7 @@ export default {
                 this.message=response.message;
             });
         },
-      MyCustomUploadAdapterPlugin( editor ) {
+        MyCustomUploadAdapterPlugin( editor ) {
         editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
         // Configure the URL to the upload script in your back-end here!
         return new MyUploadAdapter( loader );

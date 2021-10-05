@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="fade-in-box">
   <b-navbar toggleable="lg" type="dark" variant="info">
     <b-navbar-brand href="/main">WonderLand</b-navbar-brand>
 
