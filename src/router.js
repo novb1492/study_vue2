@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from './components/views/home.vue';
+import maindoor from './components/views/home.vue';
 import test from './components/views/test.vue';
 
 Vue.use(VueRouter);
@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 const router =new VueRouter({
     mode:'history',
     routes: [
-      {path:'/',component: Home},  
+      {path:'/',component: maindoor},  
       {path:'/test',component: test}  
     ]
 });
