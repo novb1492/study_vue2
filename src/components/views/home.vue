@@ -31,6 +31,7 @@ export default {
                 headers: {
                     "Content-Type": `application/json`,
                 },
+                withCredentials: true ,
             }).then(res => { 
                 console.log(res.data) 
                 var response=res.data;
