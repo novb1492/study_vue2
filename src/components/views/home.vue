@@ -1,7 +1,7 @@
 <template>
     <div>
         {{price}}
-        <input type="button" onclick="reuqest()" value="클릭">
+        <input type="button" @click="request" value="클릭">
     </div>
     
 
@@ -20,7 +20,8 @@ export default {
     },
     methods :{
         request() {
-            Axios.get('http://localhost:8080/auth/test').then(res => { console.log(res.data) });
+           
+            Axios.post('http://localhost:8080/auth/test').then(res => { console.log(res.data) });
         }
     },
 }
