@@ -11,22 +11,21 @@
 <script>
 import Axios from 'axios';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import MyUploadAdapter from '../jslib/MyUploadAdapter';
 
 export default {
    name :'home',
     data(){
-        return{
+        return{  
             price:50,
             message:null,
             editor: ClassicEditor,
                 editorData: '<p>.</p>',
                 editorConfig: {
-                    ckfinder: {
-                            uploadUrl: 'http://localhost:8080/auth/imageUpload', // 내가 지정한 업로드 url (post로 요청감)
-                        },
-                        withCredentials: true
-                }
+                    extraPlugins: [ this.MyCustomUploadAdapterPlugin ],
+
+        // ...
+                    }
         }
     },
     methods :{
@@ -46,6 +45,12 @@ export default {
                 var response=res.data;
                 this.message=response.message;
             });
+        },
+      MyCustomUploadAdapterPlugin( editor ) {
+        editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+        // Configure the URL to the upload script in your back-end here!
+        return new MyUploadAdapter( loader );
+        };
         }
     },
 }
