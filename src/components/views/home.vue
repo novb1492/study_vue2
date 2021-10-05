@@ -3,13 +3,14 @@
         {{price}}
         {{message}}
         <input type="button" @click="request" value="클릭">
+        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
     </div>
     
 
 </template>
 <script>
 import Axios from 'axios';
-
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 export default {
@@ -18,6 +19,14 @@ export default {
         return{
             price:50,
             message:null,
+            editor: ClassicEditor,
+                editorData: '<p>.</p>',
+                editorConfig: {
+                    ckfinder: {
+                            uploadUrl: 'http://localhost:8080/auth/imageUpload', // 내가 지정한 업로드 url (post로 요청감)
+                        },
+                        withCredentials: true
+                }
         }
     },
     methods :{
