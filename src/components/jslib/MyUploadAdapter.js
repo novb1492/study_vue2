@@ -26,7 +26,7 @@ export default  class MyUploadAdapter {
     // Example implementation using XMLHttpRequest.
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
-
+        
         xhr.open( 'POST', this.url, true );
         xhr.responseType = 'json';
     }
@@ -36,7 +36,7 @@ export default  class MyUploadAdapter {
         const xhr = this.xhr;
         const loader = this.loader;
         const genericErrorText = 'Couldn\'t upload file:' + ` ${ loader.file.name }.`;
-
+        xhr.withCredentials = true;
         xhr.addEventListener( 'error', () => reject( genericErrorText ) );
         xhr.addEventListener( 'abort', () => reject() );
         xhr.addEventListener( 'load', () => {

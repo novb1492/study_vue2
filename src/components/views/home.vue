@@ -20,12 +20,10 @@ export default {
             price:50,
             message:null,
             editor: ClassicEditor,
-                editorData: '<p>.</p>',
-                editorConfig: {
-                    extraPlugins: [ this.MyCustomUploadAdapterPlugin ],
-
-        // ...
-                    }
+            editorData: '<p>.</p>',
+            editorConfig: {
+                extraPlugins: [ this.MyCustomUploadAdapterPlugin ], 
+            }
         }
     },
     methods :{
