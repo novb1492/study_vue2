@@ -20,8 +20,16 @@ export default {
     },
     methods :{
         request() {
-           
-            Axios.post('http://localhost:8080/auth/test').then(res => { console.log(res.data) });
+              let data=JSON.stringify({
+                "seat":123,
+                "month":1234,
+                "year":1234
+            });
+            Axios.post('http://localhost:8080/auth/test',data,{
+          headers: {
+            "Content-Type": `application/json`,
+          },
+        }).then(res => { console.log(res.data) });
         }
     },
 }
