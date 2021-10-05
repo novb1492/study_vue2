@@ -40,19 +40,22 @@ export default {
     data(){
         return{  
             price:50,
-            link1:'/test',
-
+            link1:'null',
+            flag:true,
         }
     },
     methods :{
       checkLogin(){
+         console.log(this.flag);
         var url='http://localhost:8080/auth/checkLogin';
         const result=requestToServer(null,url);
-        result.then(console.log);
-      }
+        result.then(function(result){
+          console.log(result+" aosdnl");
+        });
+      },
     },
     created() { 
-      console.log("Child created")
+      console.log("windowonload")
       this.checkLogin();
     },
 
