@@ -1,12 +1,17 @@
 <template>
     <div>
-
+        {{price}}
+        {{message}}
+        <input type="button" @click="request" value="클릭">
+        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
     </div>
     
 
 </template>
 <script>
 import Axios from 'axios';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import MyUploadAdapter from '../jslib/MyUploadAdapter';
 
 export default {
    name :'home',
@@ -14,6 +19,11 @@ export default {
         return{  
             price:50,
             message:null,
+            editor: ClassicEditor,
+            editorData: '<p>.</p>',
+            editorConfig: {
+                extraPlugins: [ this.MyCustomUploadAdapterPlugin ], 
+            }
         }
     },
     methods :{
@@ -34,6 +44,12 @@ export default {
                 this.message=response.message;
             });
         },
+      MyCustomUploadAdapterPlugin( editor ) {
+        editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+        // Configure the URL to the upload script in your back-end here!
+        return new MyUploadAdapter( loader );
+        };
+        }
     },
 }
 </script>
