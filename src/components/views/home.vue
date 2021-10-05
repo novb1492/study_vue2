@@ -1,6 +1,7 @@
 <template>
     <div>
         {{price}}
+        {{message}}
         <input type="button" @click="request" value="클릭">
     </div>
     
@@ -16,20 +17,25 @@ export default {
     data(){
         return{
             price:50,
+            message:null,
         }
     },
     methods :{
         request() {
-              let data=JSON.stringify({
+            let data=JSON.stringify({
                 "seat":123,
                 "month":1234,
                 "year":1234
             });
             Axios.post('http://localhost:8080/auth/test',data,{
-          headers: {
-            "Content-Type": `application/json`,
-          },
-        }).then(res => { console.log(res.data) });
+                headers: {
+                    "Content-Type": `application/json`,
+                },
+            }).then(res => { 
+                console.log(res.data) 
+                var response=res.data;
+                this.message=response.message;
+            });
         }
     },
 }
