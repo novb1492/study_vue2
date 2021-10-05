@@ -34,13 +34,28 @@
 </div> 
 </template>
 <script>
+import {requestToServer} from '../jslib/jslib.js';
 export default {
    name:'header',
-     data(){
+    data(){
         return{  
             price:50,
-            link1:'main',
+            link1:'/test',
+
         }
     },
+    methods :{
+      checkLogin(){
+        var url='http://localhost:8080/auth/checkLogin';
+        const result=requestToServer(null,url);
+        result.then(console.log);
+      }
+    },
+    created() { 
+      console.log("Child created")
+      this.checkLogin();
+    },
+
+
 }
 </script>
