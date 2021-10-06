@@ -1,15 +1,15 @@
-import Axios from 'axios';
+import axios from 'axios';
 
-async function requestToServer(data,url) {
-    const response = await Axios.post(url,data,{
+async function requestToServer(url,data){
+      return  await axios.post(url,data,{
         headers: {
             "Content-Type": `application/json`,
         },
         withCredentials: true ,
-    }).then(res => { 
-        console.log(res.data); 
-        return res.data;
-    });
-     return response;
+    }).then(function(response){
+        console.log(response.data);
+        return response.data;
+     })
 }
+
 export {requestToServer};

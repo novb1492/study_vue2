@@ -26,7 +26,7 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <div v-if="this.checkLogin()">
+          <div v-if="gettest()">
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
           </div>
           <div v-else>
@@ -41,30 +41,25 @@
 </template>
 <script>
 import {requestToServer} from '../jslib/jslib.js';
+//import axios from 'axios';
 export default {
    name:'header',
     data(){
         return{  
             price:50,
             link1:'null',
-            flag:true,
+            flag:1,
         }
     },
     methods :{
-       checkLogin(){
-        var url='http://localhost:8080/auth/checkLogin';
-        
-        const result=requestToServer(null,url);
-         result.then(function(response){
-          console.log(response.flag+" aosdnl");
-             return response.flag;
-        });
+       gettest(){
+          var url='http://localhost:8080/auth/checkLogin';
+         const result=requestToServer(url,data);
+         console.log(result);
+         return result.flag;
+       },
+    
 
-        return false;
-      },
-    },
-    created() { 
-      console.log("windowonload")
     },
 
 
