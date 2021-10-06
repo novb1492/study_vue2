@@ -26,7 +26,13 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item v-bind:href="link1">Sign Out</b-dropdown-item>
+          <div v-if="this.checkLogin()">
+            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          </div>
+          <div v-else>
+            <b-dropdown-item href="#">login</b-dropdown-item>
+          </div>
+   
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -45,18 +51,20 @@ export default {
         }
     },
     methods :{
-      checkLogin(){
-         console.log(this.flag);
+       checkLogin(){
         var url='http://localhost:8080/auth/checkLogin';
+        
         const result=requestToServer(null,url);
-        result.then(function(result){
-          console.log(result+" aosdnl");
+         result.then(function(response){
+          console.log(response.flag+" aosdnl");
+             return response.flag;
         });
+
+        return false;
       },
     },
     created() { 
       console.log("windowonload")
-      this.checkLogin();
     },
 
 
