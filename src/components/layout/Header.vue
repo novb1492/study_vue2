@@ -26,7 +26,7 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <div v-if="gettest()">
+          <div v-if="this.loginCheck()">
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
           </div>
           <div v-else>
@@ -40,7 +40,7 @@
 </div> 
 </template>
 <script>
-import {requestToServer} from '../jslib/jslib.js';
+import {loginCheck} from '../jslib/jslib.js';
 //import axios from 'axios';
 export default {
    name:'header',
@@ -48,15 +48,23 @@ export default {
         return{  
             price:50,
             link1:'null',
-            flag:1,
+            flag:true,
         }
     },
     methods :{
-       gettest(){
-          var url='http://localhost:8080/auth/checkLogin';
-         const result=requestToServer(url,data);
-         console.log(result);
-         return result.flag;
+       loginCheck(){
+          const result=loginCheck().then(function(result){
+            console.log(result.flag);
+            if(result.flag){
+                document.getElementById('test').innerHTML=('abc');
+            }else{
+                document.getElementById('test').innerHTML=('bc');
+            }
+          });
+          console.log(result.then(result=>{
+              console.log(result);
+          }));
+         return true;
        },
     
 

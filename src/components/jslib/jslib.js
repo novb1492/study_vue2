@@ -7,9 +7,18 @@ async function requestToServer(url,data){
         },
         withCredentials: true ,
     }).then(function(response){
-        console.log(response.data);
-        return response.data;
+        var reuslt=response.data;
+        console.log(reuslt);
+        if(reuslt.flag==false){
+            console.log('새토큰 받아오기');
+
+        }
+        return reuslt;
      })
 }
+function loginCheck(){
+    var url='http://localhost:8080/auth/checkLogin';
+   return requestToServer(url,null);
+ }
 
-export {requestToServer};
+export {loginCheck};
