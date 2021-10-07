@@ -26,7 +26,8 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <div v-if="this.loginCheck()">
+
+          <div v-if="flag">
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
           </div>
           <div v-else>
@@ -48,24 +49,21 @@ export default {
         return{  
             price:50,
             link1:'null',
-            flag:true,
+            flag:loginCheck().then(result=>{
+              console.log(result);
+              this.flag=result.flag;
+            }),
         }
     },
     methods :{
-       loginCheck(){
-          const result=loginCheck().then(function(result){
+      /*async loginCheck(){
+          const result=await loginCheck().then(function(result){
             console.log(result.flag);
-            if(result.flag){
-                document.getElementById('test').innerHTML=('abc');
-            }else{
-                document.getElementById('test').innerHTML=('bc');
-            }
+            return result.flag;
           });
-          console.log(result.then(result=>{
-              console.log(result);
-          }));
-         return true;
-       },
+          console.log(result);
+         return false;
+       },*/
     
 
     },
