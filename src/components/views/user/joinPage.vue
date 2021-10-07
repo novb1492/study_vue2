@@ -45,10 +45,14 @@ export default {
             var button=document.getElementById('sendPhoneButton');
             if(module.checkEmthy(phone)||module.checkLength(phone,11,11)){
                 alert('핸드폰번호를 입력해주세요');
+                button.disabled=false;
                 return;
             }
             button.disabled=true;
-            module.requestToServer2(url,phone).then(result=>{
+            let data=JSON.stringify({
+                "phone":phone
+            });
+            module.requestToServer2(url,data).then(result=>{
                 alert(result.message);
                 if(!result.flag){
                     button.disabled=false;
