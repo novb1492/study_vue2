@@ -25,13 +25,14 @@
           <template #button-content>
             <em>User</em>
           </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-
           <div v-if="flag">
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <b-dropdown-item href="#">내구매내역</b-dropdown-item>
+            <b-dropdown-item href="#">내정보</b-dropdown-item>
+            <b-dropdown-item href="#">로그아웃</b-dropdown-item>
           </div>
           <div v-else>
-            <b-dropdown-item href="#">login</b-dropdown-item>
+            <b-dropdown-item href="/joinPage">회원가입</b-dropdown-item>
+            <b-dropdown-item href="/loginPage">로그인</b-dropdown-item>
           </div>
    
         </b-nav-item-dropdown>
@@ -48,7 +49,6 @@ export default {
     data(){
         return{  
             price:50,
-            link1:'null',
             flag:loginCheck().then(result=>{
               console.log(result);
               this.flag=result.flag;
@@ -56,15 +56,6 @@ export default {
         }
     },
     methods :{
-      /*async loginCheck(){
-          const result=await loginCheck().then(function(result){
-            console.log(result.flag);
-            return result.flag;
-          });
-          console.log(result);
-         return false;
-       },*/
-    
 
     },
 

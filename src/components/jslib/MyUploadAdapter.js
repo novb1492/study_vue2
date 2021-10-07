@@ -48,7 +48,7 @@ export default  class MyUploadAdapter {
             // If the upload is successful, resolve the upload promise with an object containing
             // at least the "default" URL, pointing to the image on the server.
             resolve({
-                default: response.s3Url
+                default: response.url
             });
         } );
 
