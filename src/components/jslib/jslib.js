@@ -9,6 +9,7 @@ async function requestToServer(url,data){
     }).then(function(response){
         var reuslt=response.data;
         console.log(reuslt);
+        console.log('통신직후')
         if(reuslt.flag==false){
             console.log('새토큰 받아오기');
 

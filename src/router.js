@@ -4,7 +4,7 @@ import firstdoor from './components/views/firstdoor.vue';
 import home from './components/views/home.vue';
 import test from './components/views/test.vue';
 import loginPage from'./components/views/user/loginPage.vue';
-
+import joinPage from './components/views/user/joinPage.vue';
 Vue.use(VueRouter);
 
 const router =new VueRouter({
@@ -13,6 +13,7 @@ const router =new VueRouter({
       {path:'/',component: firstdoor},  
       {path:'/home',component: home},
       {path:'/loginPage',component: loginPage},
+      {path:'/joinPage',component: joinPage},
       {path:'/test',component: test}  
     ]
 });
