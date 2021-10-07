@@ -43,13 +43,13 @@
   </div>
 </template>
 <script>
-import {loginCheck} from '../jslib/jslib.js';
+import * as module from "../jslib/jslib.js";
 export default {
    name:'header',
     data(){
         return{  
             price:50,
-            flag:loginCheck().then(result=>{
+            flag:module.loginCheck().then(result=>{
               console.log(result);
               console.log('loginCheck콜백');
               this.flag=result.flag;
