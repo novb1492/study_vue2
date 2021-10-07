@@ -24,6 +24,7 @@ export default {
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
+#joinInput{width:300px;height:30px;}
 @keyframes fadein {
     from {
         opacity:0;
