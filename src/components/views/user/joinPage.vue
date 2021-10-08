@@ -12,6 +12,7 @@
             <input type="text" id="address" class="form-control" placeholder="주소" disabled>
             <input type="text" id="detailAddess" class="form-control" placeholder="상세주소">
             <input type="text" id='phone' class="form-control joinInput" placeholder="핸드폰 번호를 입력 해주세요"><input type="button" id="sendPhoneButton" class="btn btn-primary" @click="this.sendPhone" value="인증번호전송">
+            <input type="text" id="randnum" class="form-control joinInput" placeholder="인증번호를 입력해주세요"><input type="button" id="sendRandButton" class="btn btn-primary" @click="this.sendRand" value="확인" disabled>
         </div>
     </div>
 </template>
@@ -43,9 +44,9 @@ export default {
             var url="http://localhost:8080/auth/sendSms";
             var phone=document.getElementById('phone').value;
             var button=document.getElementById('sendPhoneButton');
+            var button2=document.getElementById('sendRandButton');
             if(module.checkEmthy(phone)||module.checkLength(phone,11,11)){
                 alert('핸드폰번호를 입력해주세요');
-                button.disabled=false;
                 return;
             }
             button.disabled=true;
@@ -56,8 +57,39 @@ export default {
                 alert(result.message);
                 if(!result.flag){
                     button.disabled=false;
+                    return;
                 }
+                button2.disabled=false;
+            }).catch(error=>{
+                  alert(error);  
+                  button.disabled=false;
+            })
+        },
+        sendRand(){
+            var url="http://localhost:8080/auth/check";
+            var phone=document.getElementById('phone').value;
+            var randNum=document.getElementById('randnum').value;
+            var button=document.getElementById('sendPhoneButton');
+            var button2=document.getElementById('sendRandButton'); 
+            if(module.checkEmthy(phone)||module.checkLength(phone,11,11)){
+                alert('핸드폰번호를 입력해주세요');
+                button.disabled=false;
+                return;
+            }
+            let data=JSON.stringify({
+                "phone":phone,
+                "randNum":randNum
             });
+            button2.disabled=true;
+            module.requestToServer2(url,data).then(result=>{
+                alert(result.message);
+                if(!result.flag){
+                    button2.disabled=false;
+                }
+            }).catch(error=>{
+                  alert(error);  
+                  button2.disabled=false;
+            })
         }
     },
 }

@@ -3,6 +3,7 @@
         {{price}}
         {{message}}
         <input type="button" @click="request" value="클릭">
+        <a href="http://localhost:8080/spring/test">백엔드</a>
         <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
     </div>
     
@@ -29,11 +30,9 @@ export default {
     methods :{
         request() {
             let data=JSON.stringify({
-                "seat":123,
-                "month":1234,
-                "year":1234
+                "value":123,
             });
-            Axios.post('http://localhost:8080/auth/test',data,{
+            Axios.post('http://localhost:8080/spring/test',data,{
                 headers: {
                     "Content-Type": `application/json`,
                 },
