@@ -19,7 +19,12 @@ export default {
         tryLogin(){
             var email=document.getElementById('email').value;
             var pwd=document.getElementById('pwd').value;
-            
+            var url='http://localhost:8080/login';
+            var data=JSON.stringify({
+                "email":email,
+                "pwd":pwd,
+            });
+            module.requestToServer2(url,data);
         }
     },
 
