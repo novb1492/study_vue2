@@ -111,6 +111,12 @@ export default {
                
             }
             console.log(infor);
+            for(var ii=0;ii<infor.length;ii++){
+                if(module.checkEmthy(infor[ii])){
+                    alert('빈칸이 있습니다');
+                    return;
+                }
+            }
              let data=JSON.stringify({
                 "email":infor[0],
                 "pwd":infor[1],
@@ -124,6 +130,9 @@ export default {
             var url="http://localhost:8080/auth/tryJoin";
             module.requestToServer2(url,data).then(result=>{
                     alert(result.message);
+                    if(result.flag){
+                        location.href='/loginPage';
+                    }
             }).catch(error=>{
                     alert(error);  
             })

@@ -26,6 +26,7 @@ export default {
 }
 .joinInput{width:300px;height:30px;}
 .adressInput{width:300px;height:30px;}
+.loginInput{width:300px;height:30px;}
 @keyframes fadein {
     from {
         opacity:0;
