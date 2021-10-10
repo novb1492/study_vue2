@@ -81,7 +81,6 @@ export default {
         }
     },
     created(){
-        console.log('sss');
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', 'https://tbnpg.settlebank.co.kr/resources/js/SettlePG.js')
         document.head.appendChild(recaptchaScript)
