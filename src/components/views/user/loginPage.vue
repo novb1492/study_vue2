@@ -24,7 +24,7 @@ export default {
                 "email":email,
                 "pwd":pwd,
             });
-            module.requestToServer2(url,data).then(result=>{
+            module.requestToPostServer2(url,data).then(result=>{
                 console.log(result.flag+" ss");
                 if(result.flag){
                    opener.window.location.reload();
@@ -36,7 +36,7 @@ export default {
         },
         callNaverLogin(){
             var url='http://localhost:8080/auth/showNaverLoginPage';
-            module.requestToServer(url,null).then(result=>{
+            module.requestGetToServer2(url).then(result=>{
                 if(result.flag){ 
                     this.child=window.open(result.message,'width=500','height=500');
            

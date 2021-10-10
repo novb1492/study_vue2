@@ -57,7 +57,7 @@ export default {
             document.getElementById('address').value=result.address;
         },
         sendPhone(){
-            var url="http://localhost:8080/auth/sendSms";
+            var url="http://localhost:8080/send/phone";
             var phone=document.getElementById('phone').value;
             var button=document.getElementById('sendPhoneButton');
             var button2=document.getElementById('sendRandButton');
@@ -67,9 +67,10 @@ export default {
             }
             button.disabled=true;
             let data=JSON.stringify({
-                "phone":phone
+                "phone":phone,
+                "scope":"phone"
             });
-            module.requestToServer2(url,data).then(result=>{
+            module.requestToPostServer2(url,data).then(result=>{
                 alert(result.message);
                 if(!result.flag){
                     button.disabled=false;
@@ -82,7 +83,7 @@ export default {
             })
         },
         sendRand(){
-            var url="http://localhost:8080/auth/checkRandNum";
+            var url="http://localhost:8080/user/checkNum";
             var phone=document.getElementById('phone').value;
             var randNum=document.getElementById('randnum').value;
             var button=document.getElementById('sendPhoneButton');
@@ -98,7 +99,7 @@ export default {
                 "unit":'phone'
             });
             button2.disabled=true;
-            module.requestToServer2(url,data).then(result=>{
+            module.requestToPostServer2(url,data).then(result=>{
                 alert(result.message);
                 if(!result.flag){
                     button2.disabled=false;
@@ -138,8 +139,8 @@ export default {
                 "detailAddess":infor[6],
                 "phone":infor[7]
             });
-            var url="http://localhost:8080/auth/tryJoin";
-            module.requestToServer2(url,data).then(result=>{
+            var url="http://localhost:8080/user/crud/tryJoin";
+            module.requestToPostServer2(url,data).then(result=>{
                     alert(result.message);
                     if(result.flag){
                         location.href='/loginPage';
