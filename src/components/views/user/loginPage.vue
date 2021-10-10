@@ -27,7 +27,7 @@ export default {
             module.requestToServer2(url,data).then(result=>{
                 console.log(result.flag+" ss");
                 if(result.flag){
-                   opener.window.location ='/test';
+                   opener.window.location.reload();
                     self.close();
                 }else{
                     alert(result.message);
