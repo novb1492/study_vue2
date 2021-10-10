@@ -3,9 +3,7 @@
         <div>email</div><input type="email" id="email" class="form-control loginInput" placeholder="이메일을 입력해주세요">
         <br>
         <div>pwd</div><input type="password" id="pwd" class="form-control loginInput" placeholder="비밀번호를 입력해주세요">
-        <input type="button" value="로그인" class="btn btn-success" style="margin-top: 30px;" @click="this.tryLogin">
-        <br>
-        <input type="button" value="네이버 로그인" @click="this.callNaverLogin">
+        <input type="button" value="로그인" class="btn btn-success" style="margin-top: 30px;" @click="this.tryLogin"><input type="button" class="btn btn-success" value="네이버 로그인" @click="this.callNaverLogin" style="margin-left: 30px; margin-top: 30px;">
     </div>
 </template>
 <script>
@@ -39,9 +37,8 @@ export default {
         callNaverLogin(){
             var url='http://localhost:8080/auth/showNaverLoginPage';
             module.requestToServer2(url,null).then(result=>{
-                console.log(result.flag+" ss");
                 if(result.flag){
-                    self.close();
+                   window.open(result.message,'width=200','height=200');
                 }else{
                     alert(result.message);
                 }
