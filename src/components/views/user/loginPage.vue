@@ -4,6 +4,8 @@
         <br>
         <div>pwd</div><input type="password" id="pwd" class="form-control loginInput" placeholder="비밀번호를 입력해주세요">
         <input type="button" value="로그인" class="btn btn-success" style="margin-top: 30px;" @click="this.tryLogin">
+        <br>
+        <input type="button" value="네이버 로그인" @click="this.callNaverLogin">
     </div>
 </template>
 <script>
@@ -28,6 +30,17 @@ export default {
                 console.log(result.flag+" ss");
                 if(result.flag){
                    opener.window.location ='/test';
+                    self.close();
+                }else{
+                    alert(result.message);
+                }
+            });
+        },
+        callNaverLogin(){
+            var url='http://localhost:8080/auth/showNaverLoginPage';
+            module.requestToServer2(url,null).then(result=>{
+                console.log(result.flag+" ss");
+                if(result.flag){
                     self.close();
                 }else{
                     alert(result.message);
