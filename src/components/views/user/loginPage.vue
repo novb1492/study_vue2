@@ -24,7 +24,15 @@ export default {
                 "email":email,
                 "pwd":pwd,
             });
-            module.requestToServer2(url,data);
+            module.requestToServer2(url,data).then(result=>{
+                console.log(result.flag+" ss");
+                if(result.flag){
+                   opener.window.location ='/test';
+                    self.close();
+                }else{
+                    alert(result.message);
+                }
+            });
         }
     },
 
