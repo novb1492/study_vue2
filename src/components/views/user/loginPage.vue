@@ -12,7 +12,7 @@ export default {
     name:'loginPage',
      data() {
      return {
-         
+         child:null
      }
     },
     methods: {
@@ -36,9 +36,10 @@ export default {
         },
         callNaverLogin(){
             var url='http://localhost:8080/auth/showNaverLoginPage';
-            module.requestToServer2(url,null).then(result=>{
-                if(result.flag){
-                   window.open(result.message,'width=200','height=200');
+            module.requestToServer(url,null).then(result=>{
+                if(result.flag){ 
+                    this.child=window.open(result.message,'width=500','height=500');
+           
                 }else{
                     alert(result.message);
                 }

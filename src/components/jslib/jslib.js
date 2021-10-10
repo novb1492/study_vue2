@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function requestToServer(url,data){
+export async function requestToServer(url,data){
       return  await axios.post(url,data,{
         headers: {
             "Content-Type": `application/json`,

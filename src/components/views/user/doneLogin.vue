@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+      
+    </div>
 </template>
 
 <script>
@@ -11,11 +13,10 @@ export default {
         }
     },
     methods:{
-      
-    
     },
     created(){
-        opener.opener.document.location.href='/test';
+         opener.opener.window.location.reload();
+        opener.close();
         self.close();
     }
  
