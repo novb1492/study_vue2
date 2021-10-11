@@ -22,7 +22,14 @@ export default {
         if(provider=='naver'){
             self.close();
         }else if(provider=='kakao'){
-            location.href='/kakaoplusOkPage';
+            var url='http://localhost:8080/kakao/showPage?scope=selfMessage';
+            module.requestGetToServer(url).then(result=>{
+                if(result.flag){
+                    location.href=result.message;
+                }else{
+                    alert(result.message);
+                }
+            });
         }
 
     }

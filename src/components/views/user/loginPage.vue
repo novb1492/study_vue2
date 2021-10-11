@@ -36,7 +36,7 @@ export default {
             });
         },
         callNaverLogin(){
-            var url='http://localhost:8080/naver/showLoginPage';
+            var url='http://localhost:8080/naver/showPage';
             module.requestGetToServer2(url).then(result=>{
                 if(result.flag){ 
                     this.child=window.open(result.message,'width=500','height=500');
@@ -47,7 +47,7 @@ export default {
             });
         },
           callKakaoLogin(){
-            var url='http://localhost:8080/kakao/showLoginPage';
+            var url='http://localhost:8080/kakao/showPage?scope=login';
             module.requestGetToServer2(url).then(result=>{
                 if(result.flag){ 
                     this.child=window.open(result.message,'width=500','height=500');
