@@ -4,6 +4,7 @@
         <br>
         <div>pwd</div><input type="password" id="pwd" class="form-control loginInput" placeholder="비밀번호를 입력해주세요">
         <input type="button" value="로그인" class="btn btn-success" style="margin-top: 30px;" @click="this.tryLogin"><input type="button" class="btn btn-success" value="네이버 로그인" @click="this.callNaverLogin" style="margin-left: 30px; margin-top: 30px;">
+        <input type="button" class="btn btn-success" value="카카오 로그인" @click="this.callKakaoLogin" style="margin-left: 30px; margin-top: 30px;">
     </div>
 </template>
 <script>
@@ -35,11 +36,21 @@ export default {
             });
         },
         callNaverLogin(){
-            var url='http://localhost:8080/auth/showNaverLoginPage';
+            var url='http://localhost:8080/naver/showLoginPage';
             module.requestGetToServer2(url).then(result=>{
                 if(result.flag){ 
                     this.child=window.open(result.message,'width=500','height=500');
            
+                }else{
+                    alert(result.message);
+                }
+            });
+        },
+          callKakaoLogin(){
+            var url='http://localhost:8080/kakao/showLoginPage';
+            module.requestGetToServer2(url).then(result=>{
+                if(result.flag){ 
+                    this.child=window.open(result.message,'width=500','height=500');
                 }else{
                     alert(result.message);
                 }

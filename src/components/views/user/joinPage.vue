@@ -57,7 +57,7 @@ export default {
             document.getElementById('address').value=result.address;
         },
         sendPhone(){
-            var url="http://localhost:8080/send/phone";
+            var url="http://localhost:8080/confrim/phone";
             var phone=document.getElementById('phone').value;
             var button=document.getElementById('sendPhoneButton');
             var button2=document.getElementById('sendRandButton');
@@ -83,7 +83,7 @@ export default {
             })
         },
         sendRand(){
-            var url="http://localhost:8080/user/checkNum";
+            var url="http://localhost:8080/confrim/checkNum";
             var phone=document.getElementById('phone').value;
             var randNum=document.getElementById('randnum').value;
             var button=document.getElementById('sendPhoneButton');
@@ -99,7 +99,7 @@ export default {
                 "unit":'phone'
             });
             button2.disabled=true;
-            module.requestToPostServer2(url,data).then(result=>{
+            module.requestPutToServer2(url,data).then(result=>{
                 alert(result.message);
                 if(!result.flag){
                     button2.disabled=false;
