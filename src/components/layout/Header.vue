@@ -57,14 +57,14 @@ export default {
         window.open('/joinPage','loginPage', 'width=1000, height=800', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       showLoginPage(){
-        window.open('/loginPage','loginPage', 'width=350, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/loginPage','loginPage', 'width=500, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       showMyPage(){
         window.open('/myPage', 'window팝업', 'width=1000, height=500','menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       useHeader(){
         var uri=location.pathname;
-        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'){
+        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'){
            return false;
         }
         module.loginCheck().then(result=>{

@@ -1,0 +1,51 @@
+<template>
+    <div>
+        <div>찾으실 이메일을 입력해주세요</div>
+        <input type="email" id="email" placeholder="이메일을 입력해주세요" class="form-control joinInput">
+        <input type="button" value="인증번호 전송" id="sendEmail" @click="this.sendEmail" style="margin-top:10px;">
+        <div style="margin-top:10px;">인증번호를 입력해주세요</div>
+        <input type="text" placeholder="인증번호를 입력해주세요" class="form-control joinInput" >
+        <input type="button" id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
+
+    </div>
+
+</template>
+<script>
+import * as module from "../../jslib/jslib.js";
+export default {
+    name:'findPwdPage',
+    data(){
+        return {
+
+        }
+    },
+    methods: {
+        sendEmail(){
+            var email=document.getElementById('email').value;
+            var button=document.getElementById('sendEmail');
+            var url="http://localhost:8080/confrim/email";
+            var button2=document.getElementById('sendRandNum');
+            if(module.checkEmthy(email)){
+                alert('이메일을 입력해주세요');
+                return;
+            }
+            button.disabled=true;
+            let data=JSON.stringify({
+                "unit":email,
+                "scope":"email"
+            });
+            module.requestToPostServer2(url,data).then(result=>{
+                alert(result.message);
+                if(!result.flag){
+                    button.disabled=false;
+                    return;
+                }
+                button2.disabled=false;
+            }).catch(error=>{
+                  alert(error);  
+                  button.disabled=false;
+            })
+        }
+    },
+}
+</script>

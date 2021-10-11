@@ -8,8 +8,8 @@
             <input type="text" class="form-control joinInput" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
             <input type="text" class="form-control joinInput" id="sample6_address" v-bind:value="address" placeholder="주소" disabled>
             <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
-            <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="주소변경하기">
-           
+            <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="우편번호 찾기">
+            <input type="button" @click="this.updateAddress" class="btn btn-primary btn-default btn-sm" value="주소변경하기">
             
         </div>
     </div>
@@ -85,6 +85,9 @@ export default {
         }
         }).open();
         },
+        updateAddress(){
+            console.log(document.getElementById('sample6_postcode').value);
+        }
     },created(){
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')

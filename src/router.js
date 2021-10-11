@@ -8,6 +8,7 @@ import joinPage from './components/views/user/joinPage.vue';
 import doneLogin from './components/views/user/doneLogin.vue';
 import popUpClose from './components/views/user/popUpClose.vue';
 import myPage from './components/views/user/myPage.vue'
+import findPwdPage from './components/views/user/findPwdPage.vue';
 Vue.use(VueRouter);
 
 const router =new VueRouter({
@@ -20,6 +21,7 @@ const router =new VueRouter({
       {path:'/doneLogin',component: doneLogin},
       {path:'/popUpClose',component: popUpClose},
       {path:'/myPage',component: myPage},
+      {path:'/findPwdPage',component: findPwdPage},
       {path:'/test',component: test}  
     ]
 });

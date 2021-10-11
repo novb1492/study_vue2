@@ -41,14 +41,14 @@ export default {
             var url='http://localhost:8080/naver/showPage';
             module.requestGetToServer2(url).then(result=>{
                 if(result.flag){ 
-                    this.child=window.open(result.message,'width=500','height=500');
+                    this.child=window.open(result.message,'naverLogin','width=500, height=500');
            
                 }else{
                     alert(result.message);
                 }
             });
         },
-          callKakaoLogin(){
+        callKakaoLogin(){
             var url='http://localhost:8080/kakao/showPage?scope=login';
             module.requestGetToServer2(url).then(result=>{
                 if(result.flag){ 
@@ -57,7 +57,7 @@ export default {
                     alert(result.message);
                 }
             });
-        }
+        },
     },
 
 }
