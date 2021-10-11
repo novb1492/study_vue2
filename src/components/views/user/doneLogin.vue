@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import * as module from "../../jslib/jslib.js";
 export default {
     name:'joinPage',
     data(){
@@ -15,9 +16,15 @@ export default {
     methods:{
     },
     created(){
-         opener.opener.window.location.reload();
+        var provider=module.getParam('provider');
+        opener.opener.window.location.reload();
         opener.close();
-        self.close();
+        if(provider=='naver'){
+            self.close();
+        }else if(provider=='kakao'){
+            location.href='/kakaoplusOkPage';
+        }
+
     }
  
 }
