@@ -5,13 +5,11 @@
             <div>{{infor.email}}</div>
             <div>이름</div>
             <div>{{infor.name}}</div>
-            <input type="text" class="form-control joinInput" id="sample6_postcode" :value="postcode" placeholder="우편번호" disabled>
-            <input type="text" class="form-control joinInput" id="sample6_address" :value="address" placeholder="주소" disabled>
-            <input type="text" class="form-control joinInput" id="sample6_detailAddress"  :value="detailAddress" placeholder="상세주소">
-            <input type="button" @click="this.sample6_execDaumPostcode"  class="btn btn-primary btn-default btn-sm" value="주소변경하기">
-            <input type="text" id="phone" class="form-control joinInput" placeholder="핸드폰 번호를 입력 해주세요"><input type="button" id="sendPhoneButton" class="btn btn-primary" @click="this.sendPhone" value="인증번호전송">
-            <input type="text" id="randnum" class="form-control joinInput" placeholder="인증번호를 입력해주세요"><input type="button" id="sendRandButton" class="btn btn-primary" @click="this.sendRand" value="확인" disabled>
-            
+            <input type="text" class="form-control joinInput" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
+            <input type="text" class="form-control joinInput" id="sample6_address" v-bind:value="address" placeholder="주소" disabled>
+            <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
+            <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="주소변경하기">
+           
             
         </div>
     </div>
@@ -46,12 +44,11 @@ export default {
         new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
             // 각 주소의 노출 규칙에 따라 주소를 조합한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var addr = ''; // 주소 변수
             var extraAddr = ''; // 참고항목 변수
-
+            console.log(data);
             //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
             if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                 addr = data.roadAddress;
@@ -75,20 +72,19 @@ export default {
                     extraAddr = ' (' + extraAddr + ')';
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                document.getElementById("sample6_extraAddress").value = extraAddr;
+                //document.getElementById("sample6_extraAddress").value = extraAddr;
             
             } else {
-                document.getElementById("sample6_extraAddress").value = '';
+                //document.getElementById("sample6_extraAddress").value = '';
             }
-
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample6_postcode').value = data.zonecode;
-            document.getElementById("sample6_address").value = addr;
+            document.getElementById("sample6_postcode").value=data.zonecode;
+            document.getElementById("sample6_address").value=addr;
             // 커서를 상세주소 필드로 이동한다.
-            document.getElementById("sample6_detailAddress").focus();
+            //document.getElementById("sample6_detailAddress").focus();
         }
         }).open();
-        }
+        },
     },created(){
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
