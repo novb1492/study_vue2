@@ -2,10 +2,10 @@
     <div>
         <div>찾으실 이메일을 입력해주세요</div>
         <input type="email" id="email" placeholder="이메일을 입력해주세요" class="form-control joinInput">
-        <input type="button" value="인증번호 전송" id="sendEmail" @click="this.sendEmail" style="margin-top:10px;">
+        <input type="button" class="btn btn-primary btn btn-default btn-sm" value="인증번호 전송" id="sendEmail" @click="this.sendEmail" style="margin-top:10px;">
         <div style="margin-top:10px;">인증번호를 입력해주세요</div>
         <input type="text" placeholder="인증번호를 입력해주세요" class="form-control joinInput" >
-        <input type="button" id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
+        <input type="button" class="btn btn-primary btn btn-default btn-sm"  id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
 
     </div>
 
@@ -32,7 +32,8 @@ export default {
             button.disabled=true;
             let data=JSON.stringify({
                 "unit":email,
-                "scope":"email"
+                "scope":"email",
+                "detail":"find"
             });
             module.requestToPostServer2(url,data).then(result=>{
                 alert(result.message);

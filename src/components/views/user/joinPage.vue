@@ -57,7 +57,8 @@ export default {
             button.disabled=true;
             let data=JSON.stringify({
                 "unit":phone,
-                "scope":"phone"
+                "scope":"phone",
+                "detail":"confrim"
             });
             module.requestToPostServer2(url,data).then(result=>{
                 alert(result.message);
