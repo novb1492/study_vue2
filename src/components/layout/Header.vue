@@ -28,7 +28,7 @@
             </template>
             <div v-if="flag">
               <b-dropdown-item href="#">내구매내역</b-dropdown-item>
-              <b-dropdown-item href="#">내정보</b-dropdown-item>
+              <b-dropdown-item @click="this.showMyPage">내정보</b-dropdown-item>
               <b-dropdown-item href="#">로그아웃</b-dropdown-item>
             </div>
             <div v-else>
@@ -49,25 +49,29 @@ export default {
     data(){
         return{  
             price:50,
-            flag:module.loginCheck().then(result=>{
-              console.log(result);
-              console.log('loginCheck콜백');
-              this.flag=result.flag;
-            }),
+            flag:false
         }
     },
     methods :{
       showJoinPage(){
-        window.open('/joinPage','width=200','height=200');
+        window.open('/joinPage','loginPage', 'width=1000, height=800', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       showLoginPage(){
-        window.open('/loginPage','width=200','height=200');
+        window.open('/loginPage','loginPage', 'width=350, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+      },
+      showMyPage(){
+        window.open('/myPage', 'window팝업', 'width=1000, height=500','menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       useHeader(){
         var uri=location.pathname;
-        if(uri=='/joinPage'||uri=='/loginPage'){
+        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'){
            return false;
         }
+        module.loginCheck().then(result=>{
+            console.log(result);
+            console.log('loginCheck콜백');
+            this.flag=result.flag;
+        });
         return true;
       }
     },

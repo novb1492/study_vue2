@@ -7,6 +7,7 @@ import loginPage from'./components/views/user/loginPage.vue';
 import joinPage from './components/views/user/joinPage.vue';
 import doneLogin from './components/views/user/doneLogin.vue';
 import popUpClose from './components/views/user/popUpClose.vue';
+import myPage from './components/views/user/myPage.vue'
 Vue.use(VueRouter);
 
 const router =new VueRouter({
@@ -18,6 +19,7 @@ const router =new VueRouter({
       {path:'/joinPage',component: joinPage},
       {path:'/doneLogin',component: doneLogin},
       {path:'/popUpClose',component: popUpClose},
+      {path:'/myPage',component: myPage},
       {path:'/test',component: test}  
     ]
 });

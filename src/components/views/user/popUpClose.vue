@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-    name:'joinPage',
+    name:'popUpClose',
     data(){
         return {
       

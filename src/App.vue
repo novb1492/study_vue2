@@ -24,6 +24,7 @@ export default {
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
+a:link { text-decoration: none;}
 .joinInput{width:300px;height:30px;}
 .adressInput{width:300px;height:30px;}
 .loginInput{width:300px;height:30px;}

@@ -3,8 +3,10 @@
         <div>email</div><input type="email" id="email" class="form-control loginInput" placeholder="이메일을 입력해주세요">
         <br>
         <div>pwd</div><input type="password" id="pwd" class="form-control loginInput" placeholder="비밀번호를 입력해주세요">
-        <input type="button" value="로그인" class="btn btn-success" style="margin-top: 30px;" @click="this.tryLogin"><input type="button" class="btn btn-success" value="네이버 로그인" @click="this.callNaverLogin" style="margin-left: 30px; margin-top: 30px;">
-        <input type="button" class="btn btn-success" value="카카오 로그인" @click="this.callKakaoLogin" style="margin-left: 30px; margin-top: 30px;">
+        <input type="button" value="로그인" class="btn btn-success btn btn-default btn-sm" style="margin-top: 30px;" @click="this.tryLogin"><input type="button" class="btn btn-success btn btn-default btn-sm" value="네이버 로그인" @click="this.callNaverLogin" style="margin-left: 30px; margin-top: 30px;">
+        <input type="button" class="btn btn-success btn btn-default btn-sm" value="카카오 로그인" @click="this.callKakaoLogin" style="margin-left: 30px; margin-top: 30px;">
+        <br>
+        <a href="/findPwdPage"><span  style="margin-top: 30px;">비밀번호찾기</span ></a><a href="/findPwdPage"><span  style="margin-top: 30px; margin-left: 30px;">이메일찾기</span ></a>
     </div>
 </template>
 <script>

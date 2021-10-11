@@ -95,7 +95,10 @@ export function loginCheck(){
     var url='http://localhost:8080/user/crud/checkLogin';
    return requestGetToServer(url);
 }
-
+export function loginCheckGetInfor(){
+    var url='http://localhost:8080/user/crud?scope=all';
+   return requestGetToServer(url);
+}
 export function checkEmthy(text){
     console.log('checkEmthy');
     if(text=='' || text==null ||text== undefined){
