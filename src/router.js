@@ -9,6 +9,7 @@ import doneLogin from './components/views/user/doneLogin.vue';
 import popUpClose from './components/views/user/popUpClose.vue';
 import myPage from './components/views/user/myPage.vue'
 import findPwdPage from './components/views/user/findPwdPage.vue';
+import changePwdPage from './components/views/user/changePwdPage.vue';
 Vue.use(VueRouter);
 
 const router =new VueRouter({
@@ -22,6 +23,7 @@ const router =new VueRouter({
       {path:'/popUpClose',component: popUpClose},
       {path:'/myPage',component: myPage},
       {path:'/findPwdPage',component: findPwdPage},
+      {path:'/changePwdPage',component: changePwdPage},
       {path:'/test',component: test}  
     ]
 });

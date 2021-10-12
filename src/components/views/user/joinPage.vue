@@ -84,9 +84,10 @@ export default {
                 return;
             }
             let data=JSON.stringify({
-                "phone":phone,
+                "phoneOrEmail":phone,
                 "randNum":randNum,
-                "unit":'phone'
+                "unit":'phone',
+                "scope":'confrim'
             });
             button2.disabled=true;
             module.requestPutToServer2(url,data).then(result=>{

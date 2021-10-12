@@ -54,7 +54,7 @@ export default {
     },
     methods :{
       showJoinPage(){
-        window.open('/joinPage','loginPage', 'width=2000px, height=2500px', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/joinPage','loginPage', 'width=1000, height=1000', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       showLoginPage(){
         window.open('/loginPage','loginPage', 'width=500, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');

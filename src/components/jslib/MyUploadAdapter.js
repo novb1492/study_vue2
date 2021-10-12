@@ -3,7 +3,7 @@ export default  class MyUploadAdapter {
         // CKEditor 5's FileLoader instance.
       this.loader = props;
       // URL where to send files.
-      this.url = 'http://localhost:8080/auth/imageUpload';
+      this.url = 'http://localhost:8080/co/imageUpload';
     }
 
     // Starts the upload process.
