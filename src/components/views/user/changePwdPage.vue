@@ -5,6 +5,7 @@
         <div>한번더 일치하게 입력해주세요</div>
         <input type="password" id="pwd2" class="" placeholder="4자이상 10자 이하입니다">
         <input type="button" value="변경" id="updateButton" @click="this.tryUpdatePwd">
+        <div id="done"></div>
     </div>
 </template>
 <script>
@@ -32,7 +33,7 @@ export default {
             module.requestPutToServer2(url,data).then(result=>{
                 alert(result.message);
                 if(result.flag){
-                    location.href='/loginPage';
+                    document.getElementById('done').innerHTML=('비밀번호가 변경되었습니다');
                 }
             });
         }
