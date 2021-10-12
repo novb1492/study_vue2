@@ -64,7 +64,7 @@ export default {
       },
       useHeader(){
         var uri=location.pathname;
-        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'){
+        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'||uri=='/findEmailPage'){
            return false;
         }
         module.loginCheck().then(result=>{
