@@ -16,7 +16,7 @@ export default {
     },
     created(){
         var parms=module.getAllParam();
-        module.requestGetToServer("http://localhost:8080/find/token?scope="+parms.scope+"&token="+parms.token+"").then(result=>{
+        module.requestGetToServer("http://localhost:8080/find/token?scope="+parms.scope+"&token="+parms.object+"").then(result=>{
             if(!result.flag){
                 location.href='/firstdoor';
             }
