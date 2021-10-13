@@ -10,6 +10,8 @@
             <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
             <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="우편번호 찾기">
             <input type="button" @click="this.updateAddress" class="btn btn-primary btn-default btn-sm" value="주소변경하기">
+            <input type="text" class="form-control joinInput" id="phone" v-bind:value="infor.phoneNum" placeholder="전화번호" disabled>
+            <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm" value="전화번호 변경하기">
             
         </div>
     </div>
