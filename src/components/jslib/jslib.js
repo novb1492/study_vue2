@@ -60,7 +60,7 @@ export  function requestGetToServer2(url){
 export function requestToPostServer2(url,data){
     return  axios.post(url,data,{
       headers: {
-          "Content-Type": `application/json`,
+          "Content-Type": 'application/json',
       },
       withCredentials: true ,
   }).then(function(response){
@@ -77,7 +77,7 @@ export function requestToPostServer2(url,data){
 export function requestPutToServer2(url,data){
     return  axios.put(url,data,{
       headers: {
-          "Content-Type": `application/json`,
+          "Content-Type": 'application/json',
       },
       withCredentials: true ,
   }).then(function(response){

@@ -30,7 +30,7 @@ export default {
                 "detail":"find"
             });
             var url='http://localhost:8080/user/change?scope=pwd'
-            module.requestPutToServer2(url,data).then(result=>{
+            module.requestPutToServer(url,data).then(result=>{
                 alert(result.message);
                 if(result.flag){
                     document.getElementById('done').innerHTML=('비밀번호가 변경되었습니다');
@@ -40,6 +40,7 @@ export default {
     },
     created(){
         var parms=module.getAllParam();
+        console.log(parms);
         module.requestGetToServer("http://localhost:8080/find/token?scope="+parms.scope+"&token="+parms.object+"").then(result=>{
             if(!result.flag){
                 location.href='/firstdoor';

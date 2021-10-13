@@ -40,6 +40,26 @@ export default {
         }
     },
     methods: {
+        updateAddress(){
+            var postcode=document.getElementById('sample6_postcode').value;
+            var address=document.getElementById('sample6_address').value;
+            var detailAddress=document.getElementById('sample6_detailAddress').value;
+            console.log(address);
+            let data=JSON.stringify({
+                "postcode":postcode,
+                "address":address,
+                "detailAddress":detailAddress,
+                "scope":"address",
+                "detail":"update"
+            });
+            var url='http://localhost:8080/user/change/address';
+            module.requestPutToServer2(url,data).then(result=>{
+                alert(result.message);
+            }).catch(error=>{
+                  alert(error);  
+                  button.disabled=false;
+            })
+        },
         sample6_execDaumPostcode() {
         new daum.Postcode({
         oncomplete: function(data) {
@@ -85,9 +105,6 @@ export default {
         }
         }).open();
         },
-        updateAddress(){
-            console.log(document.getElementById('sample6_postcode').value);
-        }
     },created(){
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
