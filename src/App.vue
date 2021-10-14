@@ -17,7 +17,6 @@ export default {
 </script>
 
 <style>
-#mainShopText{text-align: center;margin-top: 20%; color: pink;font: italic 5em "Fira Sans", serif;}
 .fade-in-box{
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
