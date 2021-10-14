@@ -1,26 +1,43 @@
 <template>
-
-    <div>
-      
-        <div class="col-md-3" style="float: none; margin:0 auto;">
-            <div v-for="text in this.textarray" :key="text">
-                <div>{{text.text}}</div>
-                <input type="text" v-bind:id="text.id" class="form-control joinInput">   
-                <div v-if="text.id=='password2'">
-                    <div style="font-size: 5px;">비밀번호는 최소 4자 최대 10자입니다</div>
+    <div class="joinPage">
+       <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col">  
+                </div>
+                <div class="col">
+                     <div v-for="text in this.textarray" :key="text">
+                        <div>{{text.text}}</div>
+                        <div v-if="text.id=='password2'||text.id=='password'">
+                            <input type="password" v-bind:id="text.id" class="form-control joinInput">   
+                        </div>
+                    <div v-else>
+                        <input type="text" v-bind:id="text.id" class="form-control joinInput"> 
+                    </div>
+                    <div v-if="text.id=='password2'">
+                        <div style="font-size: 5px;">비밀번호는 최소 4자 최대 10자입니다</div>
+                    </div>
+                    </div>
+                    <div class="mt-3">주소를 입력해주세요</div>
+                    <vue-daum-postcode  @complete="onComplete" style="overflow:scroll; width:300px; height:300px;"/>
+                    <input type="text" id="postcode" class="form-control joinInput mt-2" placeholder="우편번호" disabled>
+                    <input type="text" id="address" class="form-control joinInput mt-2" placeholder="주소" disabled>
+                    <input type="text" id="detailAddess" class="form-control joinInput mt-2" placeholder="상세주소">
+                    <input type="text" id="phone" class="form-control joinInput mt-3" placeholder="핸드폰 번호를 입력 해주세요">
+                    <input type="button" id="sendPhoneButton" class="btn btn-primary" @click="this.sendPhone" value="인증번호전송">
+                    <input type="text" id="randnum" class="form-control joinInput " placeholder="인증번호를 입력해주세요">
+                    <input type="button" id="sendRandButton" class="btn btn-primary" @click="this.sendRand" value="확인" disabled>
+                    <br>
+                    <input type="button" id="tryJoinButton" class="btn btn-success"  @click="this.tryJoin" value="회원가입" style="margin-top: 10%;">
+                </div>
+                <div class="col">
                 </div>
             </div>
-            <vue-daum-postcode  @complete="onComplete" style="overflow:scroll; width:300px; height:300px;"/>
-            <input type="text" id="postcode" class="form-control" placeholder="우편번호" disabled>
-            <input type="text" id="address" class="form-control" placeholder="주소" disabled>
-            <input type="text" id="detailAddess" class="form-control" placeholder="상세주소">
-            <input type="text" id="phone" class="form-control joinInput" placeholder="핸드폰 번호를 입력 해주세요"><input type="button" id="sendPhoneButton" class="btn btn-primary" @click="this.sendPhone" value="인증번호전송">
-            <input type="text" id="randnum" class="form-control joinInput" placeholder="인증번호를 입력해주세요"><input type="button" id="sendRandButton" class="btn btn-primary" @click="this.sendRand" value="확인" disabled>
-            <br>
-            <input type="button" id="tryJoinButton" class="btn btn-success"  @click="this.tryJoin" value="회원가입" style="margin-top: 10%;">
         </div>
     </div>
 </template>
+<style>
+.container-fluid{width: 50%;}
+</style>
 <script>
 import Vue from "vue";
 import VueDaumPostcode from "vue-daum-postcode";

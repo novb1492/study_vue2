@@ -24,7 +24,7 @@ export default {
     -o-animation: fadein 2s; /* Opera */
 }
 a:link { text-decoration: none;}
-.joinInput{width:300px;height:30px;}
+.joinInput{width:300px;height: 25px;}
 .adressInput{width:300px;height:30px;}
 .loginInput{width:300px;height:30px;}
 @keyframes fadein {
