@@ -5,14 +5,22 @@
             <div>{{infor.email}}</div>
             <div>이름</div>
             <div>{{infor.name}}</div>
+            <div>휴대폰번호</div>
+            <div>{{infor.phoneNum}}</div>
+            <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm" value="전화번호 변경하기">
             <input type="text" class="form-control joinInput" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
             <input type="text" class="form-control joinInput" id="sample6_address" v-bind:value="address" placeholder="주소" disabled>
             <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
             <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="우편번호 찾기">
-            <input type="button" @click="this.updateAddress" class="btn btn-primary btn-default btn-sm" value="주소변경하기">
-            <input type="text" class="form-control joinInput" id="phone" v-bind:value="infor.phoneNum" placeholder="전화번호" disabled>
-            <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm" value="전화번호 변경하기">
-            
+            <input type="button" @click="this.updateAddress" id="updateAddressButton" class="btn btn-primary btn-default btn-sm" value="주소변경하기" disabled>
+            <div>비밀번호 변경</div>
+            <div>현재 비밀번호를 입력해주세요</div>
+            <input type="password" class="form-control joinInput" id="originPwd"  placeholder="현재 비밀번호를 입력해주세요" >
+            <div>새로 사용하실 비밀번호를 입력해주세요</div>
+            <input type="password" class="form-control joinInput" id="pwd"  placeholder="새로 사용하실 비밀번호를 입력해주세요" >
+            <div>한번더  입력해주세요</div>
+            <input type="password" class="form-control joinInput" id="pwd2"   placeholder="새로 사용하실 비밀번호를 입력해주세요">
+            <input type="button" @click="this.updatePwd"  class="btn btn-primary btn-default btn-sm" value="비밀번호 수정">
         </div>
     </div>
 </template>
@@ -30,7 +38,7 @@ export default {
                 console.log(result+ "제일위")
                 if(!result.flag){
                     alert(result.message);
-                    location.href='/firstdoor';
+                    self.close();
                     return;
                 }
                 this.infor=result.data;
@@ -42,6 +50,25 @@ export default {
         }
     },
     methods: {
+        updatePwd(){
+            var originPwd=document.getElementById('originPwd').value;
+            var pwd=document.getElementById('pwd').value;
+            var pwd2=document.getElementById('pwd2').value;
+            var url='http://localhost:8080/user/change/pwd'
+            let data=JSON.stringify({
+                "originPwd":originPwd,
+                "pwd":pwd,
+                "pwd2":pwd2,
+                "scope":"pwd",
+                "detail":"update"
+            });
+            module.requestPutToServer(url,data).then(result=>{
+                alert(result.message);
+                if(result.flag){
+                    window.location.reload();
+                }
+            });
+        },
         updateAddress(){
             var postcode=document.getElementById('sample6_postcode').value;
             var address=document.getElementById('sample6_address').value;
@@ -102,6 +129,7 @@ export default {
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById("sample6_postcode").value=data.zonecode;
                 document.getElementById("sample6_address").value=addr;
+                document.getElementById('updateAddressButton').disabled=false;
                 // 커서를 상세주소 필드로 이동한다.
                 //document.getElementById("sample6_detailAddress").focus();
             }
