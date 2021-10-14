@@ -49,22 +49,22 @@ export default {
     data(){
         return{  
             price:50,
-            flag:false
+            flag:false,
         }
     },
     methods :{
       showJoinPage(){
-        window.open('/joinPage','loginPage', 'width=1000, height=1000', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/joinPage','userpopup', 'width=1000, height=1000', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       showLoginPage(){
-        window.open('/loginPage','loginPage', 'width=500, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/loginPage','userpopup', 'width=500, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       showMyPage(){
-        window.open('/myPage', 'window팝업', 'width=1000, height=500','menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/myPage', 'userpopup', 'width=1000, height=500','menubar=no, status=no, toolbar=no,location=no,resizable=no');
       },
       useHeader(){
         var uri=location.pathname;
-        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'||uri=='/findEmailPage'){
+        if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'||uri=='/findEmailPage'||uri=='/changePhonePage'){
            return false;
         }
         module.loginCheck().then(result=>{

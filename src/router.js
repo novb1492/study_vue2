@@ -11,6 +11,7 @@ import myPage from './components/views/user/myPage.vue'
 import findPwdPage from './components/views/user/findPwdPage.vue';
 import changePwdPage from './components/views/user/changePwdPage.vue';
 import findEmailPage from './components/views/user/findEmailPage.vue';
+import changePhonePage from './components/views/user/changePhonePage.vue';
 Vue.use(VueRouter);
 
 const router =new VueRouter({
@@ -26,6 +27,7 @@ const router =new VueRouter({
       {path:'/findPwdPage',component: findPwdPage},
       {path:'/changePwdPage',component: changePwdPage},
       {path:'/findEmailPage',component: findEmailPage},
+      {path:'/changePhonePage',component: changePhonePage},
       {path:'/test',component: test}  
     ]
 });
