@@ -69,6 +69,7 @@ export default {
                     return;
                 }
                 opener.window.location.reload();
+                self.close();
             }).catch(error=>{
                   alert(error);  
                   button.disabled=false;
