@@ -87,13 +87,13 @@ export default {
     },
     methods :{
       showJoinPage(){
-        window.open('/joinPage','userpopup', 'width=1000, height=1000', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/joinPage','userpopup', 'width=500, height=900','resizable=no');
       },
       showLoginPage(){
-        window.open('/loginPage','userpopup', 'width=500, height=500', 'menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/loginPage','userpopup', 'width=500, height=400','resizable=no');
       },
       showMyPage(){
-        window.open('/myPage', 'userpopup', 'width=1000, height=500','menubar=no, status=no, toolbar=no,location=no,resizable=no');
+        window.open('/myPage', 'userpopup', 'width=1000, height=500','resizable=no');
       },
       useHeader(){
         var uri=location.pathname;

@@ -36,6 +36,7 @@
     </div>
 </template>
 <style>
+.joinInput{width:300px;height: 25px;}
 .container-fluid{width: 50%;}
 </style>
 <script>
