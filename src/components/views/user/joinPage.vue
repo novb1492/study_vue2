@@ -5,6 +5,7 @@
                 <div class="col">  
                 </div>
                 <div class="col">
+                    <div id="logo">WonderLand</div>
                      <div v-for="text in this.textarray" :key="text">
                         <div>{{text.text}}</div>
                         <div v-if="text.id=='password2'||text.id=='password'">

@@ -1,8 +1,6 @@
 <template>
     <div class="changePwdPage">
-        <div class="container-fluid">
-
-                <div class="col ">
+     
                     <h1 id="logo2" class="center">WonderLand</h1>
                     <div class="center2">
                         <h4 class="mt-5">새 비밀번호를 입력해 주세요</h4>
@@ -13,8 +11,7 @@
                         <input type="button" value="변경" class="mt-3" id="updateButton" @click="this.tryUpdatePwd">
                         <div id="done"></div>
                     </div>
-                </div>
-        </div>
+        
     </div>
 </template>
 <style>

@@ -5,26 +5,27 @@
                 <div class="col">  
                 </div>
                 <div class="col">
-                    <div>이메일</div>
+                    <div id="logo3">WonderLand</div>
+                    <h5 class="mt-4">이메일</h5>
                     <div>{{infor.email}}</div>
-                    <div>이름</div>
+                    <h5 class="mt-3">이름</h5>
                     <div>{{infor.name}}</div>
-                    <div>휴대폰번호</div>
+                    <h5 class="mt-3">휴대폰번호</h5>
                     <div>{{infor.phoneNum}}</div>
-                    <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm" value="전화번호 변경하기">
-                    <input type="text" class="form-control joinInput" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
+                    <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm mt-3" value="전화번호 변경하기">
+                    <input type="text" class="form-control joinInput mt-2" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
                     <input type="text" class="form-control joinInput" id="sample6_address" v-bind:value="address" placeholder="주소" disabled>
                     <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
-                    <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="우편번호 찾기">
-                    <input type="button" @click="this.updateAddress" id="updateAddressButton" class="btn btn-primary btn-default btn-sm" value="주소변경하기" disabled>
-                    <div>비밀번호 변경</div>
+                    <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm mt-2" value="우편번호 찾기">
+                    <input type="button" @click="this.updateAddress" id="updateAddressButton" class="btn btn-primary btn-default btn-sm mt-2" value="주소변경하기" disabled>
+                    <h5 class="mt-4">비밀번호 변경</h5>
                     <div>현재 비밀번호를 입력해주세요</div>
-                    <input type="password" class="form-control joinInput" id="originPwd"  placeholder="현재 비밀번호를 입력해주세요" >
+                    <input type="password" class="form-control joinInput mt-2" id="originPwd"  placeholder="현재 비밀번호를 입력해주세요" >
                     <div>새로 사용하실 비밀번호를 입력해주세요</div>
-                    <input type="password" class="form-control joinInput" id="pwd"  placeholder="새로 사용하실 비밀번호를 입력해주세요" >
+                    <input type="password" class="form-control joinInput mt-2" id="pwd"  placeholder="새로 사용하실 비밀번호를 입력해주세요" >
                     <div>한번더  입력해주세요</div>
-                    <input type="password" class="form-control joinInput" id="pwd2"   placeholder="새로 사용하실 비밀번호를 입력해주세요">
-                    <input type="button" @click="this.updatePwd"  class="btn btn-primary btn-default btn-sm" value="비밀번호 수정">                    
+                    <input type="password" class="form-control joinInput mt-2" id="pwd2"   placeholder="새로 사용하실 비밀번호를 입력해주세요">
+                    <input type="button" @click="this.updatePwd"  class="btn btn-primary btn-default btn-sm mt-2" value="비밀번호 수정">                    
                 </div>
                 <div class="col">
                 </div>
@@ -32,6 +33,9 @@
         </div>  
     </div>
 </template>
+<style>
+#logo3{color: pink;font: italic 4em "Fira Sans", serif;}
+</style>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 import * as module from '../../jslib/jslib.js';
