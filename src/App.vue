@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style>
+.loginInput{width:300px;height:30px;}
 .fade-in-box{
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */

@@ -1,27 +1,35 @@
 <template>
-        <div>
-        <div class="col-md-3" style="float: none; margin:0 auto;">
-            <div>이메일</div>
-            <div>{{infor.email}}</div>
-            <div>이름</div>
-            <div>{{infor.name}}</div>
-            <div>휴대폰번호</div>
-            <div>{{infor.phoneNum}}</div>
-            <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm" value="전화번호 변경하기">
-            <input type="text" class="form-control joinInput" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
-            <input type="text" class="form-control joinInput" id="sample6_address" v-bind:value="address" placeholder="주소" disabled>
-            <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
-            <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="우편번호 찾기">
-            <input type="button" @click="this.updateAddress" id="updateAddressButton" class="btn btn-primary btn-default btn-sm" value="주소변경하기" disabled>
-            <div>비밀번호 변경</div>
-            <div>현재 비밀번호를 입력해주세요</div>
-            <input type="password" class="form-control joinInput" id="originPwd"  placeholder="현재 비밀번호를 입력해주세요" >
-            <div>새로 사용하실 비밀번호를 입력해주세요</div>
-            <input type="password" class="form-control joinInput" id="pwd"  placeholder="새로 사용하실 비밀번호를 입력해주세요" >
-            <div>한번더  입력해주세요</div>
-            <input type="password" class="form-control joinInput" id="pwd2"   placeholder="새로 사용하실 비밀번호를 입력해주세요">
-            <input type="button" @click="this.updatePwd"  class="btn btn-primary btn-default btn-sm" value="비밀번호 수정">
-        </div>
+    <div class="myPage">
+       <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col">  
+                </div>
+                <div class="col">
+                    <div>이메일</div>
+                    <div>{{infor.email}}</div>
+                    <div>이름</div>
+                    <div>{{infor.name}}</div>
+                    <div>휴대폰번호</div>
+                    <div>{{infor.phoneNum}}</div>
+                    <input type="button" @click="this.openPhone" class="btn btn-primary btn-default btn-sm" value="전화번호 변경하기">
+                    <input type="text" class="form-control joinInput" id="sample6_postcode" v-bind:value="postcode" placeholder="우편번호" disabled>
+                    <input type="text" class="form-control joinInput" id="sample6_address" v-bind:value="address" placeholder="주소" disabled>
+                    <input type="text" class="form-control joinInput" id="sample6_detailAddress"  v-bind:value="detailAddress" placeholder="상세주소">
+                    <input type="button" @click="this.sample6_execDaumPostcode" class="btn btn-primary btn-default btn-sm" value="우편번호 찾기">
+                    <input type="button" @click="this.updateAddress" id="updateAddressButton" class="btn btn-primary btn-default btn-sm" value="주소변경하기" disabled>
+                    <div>비밀번호 변경</div>
+                    <div>현재 비밀번호를 입력해주세요</div>
+                    <input type="password" class="form-control joinInput" id="originPwd"  placeholder="현재 비밀번호를 입력해주세요" >
+                    <div>새로 사용하실 비밀번호를 입력해주세요</div>
+                    <input type="password" class="form-control joinInput" id="pwd"  placeholder="새로 사용하실 비밀번호를 입력해주세요" >
+                    <div>한번더  입력해주세요</div>
+                    <input type="password" class="form-control joinInput" id="pwd2"   placeholder="새로 사용하실 비밀번호를 입력해주세요">
+                    <input type="button" @click="this.updatePwd"  class="btn btn-primary btn-default btn-sm" value="비밀번호 수정">                    
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>  
     </div>
 </template>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
