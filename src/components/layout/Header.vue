@@ -82,7 +82,6 @@ export default {
     data(){
         return{  
             price:50,
-            flag:false,
         }
     },
     methods :{
@@ -93,7 +92,7 @@ export default {
         window.open('/loginPage','userpopup', 'width=500, height=400','resizable=no');
       },
       showMyPage(){
-        window.open('/myPage', 'userpopup', 'width=1000, height=500','resizable=no');
+        window.open('/myPage', 'userpopup', 'width=1000, height=1000','resizable=no');
       },
       useHeader(){
         var uri=location.pathname;
@@ -103,7 +102,6 @@ export default {
         module.loginCheck().then(result=>{
             console.log(result);
             console.log('loginCheck콜백');
-            this.flag=result.flag;
         });
         return true;
       }

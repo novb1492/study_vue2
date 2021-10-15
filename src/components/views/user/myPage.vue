@@ -5,7 +5,7 @@
                 <div class="col">  
                 </div>
                 <div class="col">
-                    <div id="logo3">WonderLand</div>
+                    <div id="logo3" class="mt-5">WonderLand</div>
                     <h5 class="mt-4">이메일</h5>
                     <div>{{infor.email}}</div>
                     <h5 class="mt-3">이름</h5>
