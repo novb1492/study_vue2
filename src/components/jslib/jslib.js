@@ -87,19 +87,8 @@ export function requestPutToServer2(url,data){
       return reuslt;
    })
 }
-export function loginCheck(){
-    var url='http://localhost:8080/user/crud/checkLogin';
-   return requestGetToServer(url).then(result=>{
-            if(result.message=='newAccessToken'){
-                console.log('새토큰으로 다시시도');
-                return requestGetToServer(url);
-            }else{
-                return result;
-            }
-        });
-}
-export function loginCheckGetInfor(){
-    var url='http://localhost:8080/user/crud?scope=all';
+export function loginCheck(scope){
+    var url='http://localhost:8080/user/crud/checkLogin?scope='+scope;
    return requestGetToServer(url).then(result=>{
             if(result.message=='newAccessToken'){
                 console.log('새토큰으로 다시시도');

@@ -46,7 +46,7 @@ export default {
             postcode:null,
             address:null,
             detailAddress:null,
-            infor: module.loginCheckGetInfor().then(result=>{
+            infor: module.loginCheck('all').then(result=>{
                 console.log(result+ "제일위")
                 if(!result.flag){
                     alert(result.message);

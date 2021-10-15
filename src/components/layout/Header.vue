@@ -82,6 +82,7 @@ export default {
     data(){
         return{  
             price:50,
+            flag:this.doLoing(),
         }
     },
     methods :{
@@ -95,15 +96,25 @@ export default {
         window.open('/myPage', 'userpopup', 'width=1000, height=1000','resizable=no');
       },
       useHeader(){
+        var showOrNot=true;
         var uri=location.pathname;
         if(uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'||uri=='/findEmailPage'||uri=='/changePhonePage'){
-           return false;
+           showOrNot= false;
+        }else{
+          showOrNot=true;
         }
-        module.loginCheck().then(result=>{
+        return showOrNot;
+      },
+      doLoing(){
+        var uri=location.pathname;
+        console.log(uri);
+        if(uri!='/myPage'){
+            module.loginCheck('no').then(result=>{
             console.log(result);
             console.log('loginCheck콜백');
-        });
-        return true;
+            this.flag=result.flag;
+            })
+        }
       }
     },
 
