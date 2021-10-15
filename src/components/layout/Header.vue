@@ -24,7 +24,7 @@
             <div v-if="flag">
               <b-dropdown-item href="#">내구매내역</b-dropdown-item>
               <b-dropdown-item @click="this.showMyPage">내정보</b-dropdown-item>
-              <b-dropdown-item href="#">로그아웃</b-dropdown-item>
+              <b-dropdown-item @click="this.doLogOut">로그아웃</b-dropdown-item>
             </div>
             <div v-else>
               <b-dropdown-item @click="this.showJoinPage">회원가입</b-dropdown-item>
@@ -82,7 +82,7 @@ export default {
     data(){
         return{  
             price:50,
-            flag:this.doLoing(),
+            flag:this.doLogin(),
         }
     },
     methods :{
@@ -105,7 +105,7 @@ export default {
         }
         return showOrNot;
       },
-      doLoing(){
+      doLogin(){
         var uri=location.pathname;
         console.log(uri);
         if(uri!='/myPage'){
@@ -115,6 +115,16 @@ export default {
             this.flag=result.flag;
             })
         }
+      },
+      doLogOut(){
+        var url='http://localhost:8080/user/logout';
+        module.requestGetToServer(url,null).then(result=>{
+            if(result.flag){
+              location.reload();
+              return;
+            }
+            alert(result.message);
+        });
       }
     },
 
