@@ -5,10 +5,6 @@ export async function requestGetToServer(url){
         var reuslt=response.data;
         console.log(reuslt);
         console.log('통신직후')
-        if(reuslt.flag==false){
-            console.log('새토큰 받아오기');
-
-        }
         return reuslt;
      })
 }
@@ -93,7 +89,14 @@ export function requestPutToServer2(url,data){
 }
 export function loginCheck(){
     var url='http://localhost:8080/user/crud/checkLogin';
-   return requestGetToServer(url);
+   return requestGetToServer(url).then(result=>{
+        if(result.message=='newAccessToken'){
+            console.log('새토큰으로 다시시도');
+            return requestGetToServer(url);
+        }else{
+            return result;
+        }
+   });
 }
 export function loginCheckGetInfor(){
     var url='http://localhost:8080/user/crud?scope=all';

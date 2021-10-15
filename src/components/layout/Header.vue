@@ -82,6 +82,7 @@ export default {
     data(){
         return{  
             price:50,
+            flag:false,
         }
     },
     methods :{
@@ -102,6 +103,7 @@ export default {
         module.loginCheck().then(result=>{
             console.log(result);
             console.log('loginCheck콜백');
+            this.flag=result.flag;
         });
         return true;
       }
