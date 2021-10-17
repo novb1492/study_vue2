@@ -147,7 +147,8 @@ export default {
                 "postcode":infor[4],
                 "address":infor[5],
                 "detailAddess":infor[6],
-                "phone":infor[7]
+                "phone":infor[7],
+                "scope":"confrim"
             });
             var url="http://localhost:8080/user/crud/tryJoin";
             module.requestToPostServer2(url,data).then(result=>{

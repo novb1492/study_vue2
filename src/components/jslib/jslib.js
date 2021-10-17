@@ -24,7 +24,7 @@ export async function requestPostToServer(url,data){
       console.log('통신직후')
       if(result.message=='newAccessToken'){
         console.log('새토큰으로 요청');
-        return requestPostToServer(url);
+        return requestPostToServer(url,data);
         }   
       return result;
    })
@@ -41,7 +41,7 @@ export async function requestPutToServer(url,data){
       console.log('통신직후')
       if(result.message=='newAccessToken'){
         console.log('새토큰으로 요청');
-        return requestPutToServer(url);
+        return requestPutToServer(url,data);
     }
       return result;
    })
