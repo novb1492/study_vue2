@@ -94,7 +94,7 @@ export default {
                 "detail":"update"
             });
             var url='http://localhost:8080/user/change/address';
-            module.requestPutToServer2(url,data).then(result=>{
+            module.requestPutToServer(url,data).then(result=>{
                 alert(result.message);
             }).catch(error=>{
                   alert(error);  
