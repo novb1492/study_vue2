@@ -26,6 +26,7 @@
 <style>
 .findButton{margin-top: 20px;}
 #logo{text-align: center; margin-top: 50px;color: pink;font: italic 3em "Fira Sans", serif; }
+.loginInput{width:300px;height:30px;}
 </style>
 <script>
 import * as module from "../../jslib/jslib.js";
@@ -80,7 +81,4 @@ export default {
 
 }
 </script>
-<style>
-.loginInput{width:300px;height:30px;}
-</style>
 
