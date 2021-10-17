@@ -2,10 +2,14 @@ import axios from 'axios';
 
 export async function requestGetToServer(url){
       return  await axios.get(url,{withCredentials: true}).then(function(response){
-        var reuslt=response.data;
-        console.log(reuslt);
-        console.log('통신직후')
-        return reuslt;
+        var result=response.data;
+        console.log(result);
+        console.log('통신직후');
+        if(result.message=='newAccessToken'){
+            console.log('새토큰으로 요청');
+            return requestGetToServer(url);
+        }
+        return result;
      })
 }
 export async function requestPostToServer(url,data){
@@ -15,14 +19,14 @@ export async function requestPostToServer(url,data){
       },
       withCredentials: true ,
   }).then(function(response){
-      var reuslt=response.data;
-      console.log(reuslt);
+      var result=response.data;
+      console.log(result);
       console.log('통신직후')
-      if(reuslt.flag==false){
-          console.log('새토큰 받아오기');
-
-      }
-      return reuslt;
+      if(result.message=='newAccessToken'){
+        console.log('새토큰으로 요청');
+        return requestPostToServer(url);
+        }   
+      return result;
    })
 }
 export async function requestPutToServer(url,data){
@@ -32,25 +36,25 @@ export async function requestPutToServer(url,data){
       },
       withCredentials: true ,
   }).then(function(response){
-      var reuslt=response.data;
-      console.log(reuslt);
+      var result=response.data;
+      console.log(result);
       console.log('통신직후')
-      if(reuslt.flag==false){
-          console.log('새토큰 받아오기');
-
-      }
-      return reuslt;
+      if(result.message=='newAccessToken'){
+        console.log('새토큰으로 요청');
+        return requestPutToServer(url);
+    }
+      return result;
    })
 }
 export  function requestGetToServer2(url){
     return  axios.get(url,{withCredentials: true}).then(function(response){
-      var reuslt=response.data;
-      console.log(reuslt);
+      var result=response.data;
+      console.log(result);
       console.log('통신직후')
-      if(reuslt.flag==false){
+      if(result.flag==false){
           console.log('새토큰 받아오기');
       }
-      return reuslt;
+      return result;
    })
 }
 export function requestToPostServer2(url,data){
@@ -60,14 +64,14 @@ export function requestToPostServer2(url,data){
       },
       withCredentials: true ,
   }).then(function(response){
-      var reuslt=response.data;
-      console.log(reuslt);
+      var result=response.data;
+      console.log(result);
       console.log('통신직후')
-      if(reuslt.flag==false){
+      if(result.flag==false){
           console.log('새토큰 받아오기');
 
       }
-      return reuslt;
+      return result;
    })
 }
 export function requestPutToServer2(url,data){
@@ -77,14 +81,14 @@ export function requestPutToServer2(url,data){
       },
       withCredentials: true ,
   }).then(function(response){
-      var reuslt=response.data;
-      console.log(reuslt);
+      var result=response.data;
+      console.log(result);
       console.log('통신직후')
-      if(reuslt.flag==false){
+      if(result.flag==false){
           console.log('새토큰 받아오기');
 
       }
-      return reuslt;
+      return result;
    })
 }
 export function loginCheck(scope){
