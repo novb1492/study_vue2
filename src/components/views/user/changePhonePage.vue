@@ -33,9 +33,9 @@ export default {
             let data=JSON.stringify({
                 "unit":phone,
                 "scope":"phone",
-                "detail":"confrim"
+                "detail":"change"
             });
-            module.requestToPostServer2(url,data).then(result=>{
+            module.requestPostToServer(url,data).then(result=>{
                 alert(result.message);
                 if(!result.flag){
                     button.disabled=false;
@@ -64,7 +64,7 @@ export default {
                 'scope':'update'
             });
             button2.disabled=true;
-            module.requestPutToServer2(url,data).then(result=>{
+            module.requestPutToServer(url,data).then(result=>{
                 alert(result.message);
                 if(!result.flag){
                     button2.disabled=false;

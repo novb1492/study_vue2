@@ -13,7 +13,7 @@ export async function requestGetToServer(url){
      })
 }
 export async function requestPostToServer(url,data){
-    return  await axios.get(url,data,{
+    return  await axios.post(url,data,{
       headers: {
           "Content-Type": `application/json`,
       },
