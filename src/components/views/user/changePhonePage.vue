@@ -33,7 +33,7 @@ export default {
             let data=JSON.stringify({
                 "unit":phone,
                 "scope":"phone",
-                "detail":"change"
+                "detail":"update"
             });
             module.requestPostToServer(url,data).then(result=>{
                 alert(result.message);
@@ -61,7 +61,8 @@ export default {
                 "phoneOrEmail":phone,
                 "unit":"phone",
                 "randNum":document.getElementById('randnum').value,
-                'scope':'update'
+                'scope':'update',
+                'detail':'update'
             });
             button2.disabled=true;
             module.requestPutToServer(url,data).then(result=>{
