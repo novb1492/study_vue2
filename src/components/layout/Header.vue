@@ -2,7 +2,7 @@
   <div v-if="this.useHeader()">
     <div class="fade-in-box">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-      <a class="navbar-brand" href="#">WonderLand</a>
+      <a class="navbar-brand" href="/test">WonderLand</a>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
