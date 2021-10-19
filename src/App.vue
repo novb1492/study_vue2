@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <Header />
+    <Sidebar />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from './components/layout/Header.vue'
-
+import Header from './components/layout/Header.vue';
+import Sidebar from './components/layout/sidebar.vue';
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Sidebar
   }
 }
 </script>
@@ -23,6 +25,16 @@ export default {
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
+}
+.fade-out-box {
+  display: inline-block;
+  background: yellow;
+  padding: 10px;
+  animation: fadeout 3s;
+  -moz-animation: fadeout 3s; /* Firefox */
+  -webkit-animation: fadeout 3s; /* Safari and Chrome */
+  -o-animation: fadeout 3s; /* Opera */
+  animation-fill-mode: forwards;
 }
 a:link { text-decoration: none;}
 .adressInput{width:300px;height:30px;}
