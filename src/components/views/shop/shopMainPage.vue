@@ -1,14 +1,19 @@
 <template>
     <div class="shopMainPage">
         <div id="productArea">
-            <span v-for="product in this.products" :key="product">
-                <img :src="product.imgPath">
-                <span> {{product.price}} dsds</span>
-            </span>
+            <ul v-for="product in this.products" :key="product" >
+                <li> 
+                    <div>
+                        <a href="https://google.com" target="_blank"><img :src="product.imgPath"></a>
+                    </div> 
+                    {{product.price}} dsds
+                </li>
+            </ul>
         </div>
     </div>
 </template>
 <style>
+ul{padding-left: 0px; list-style: none;float: left;}
 #productArea{position: absolute; top: 100px; left: 20px;}
 img{width: 150px;height: 100px;}
 </style>
