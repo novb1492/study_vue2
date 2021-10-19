@@ -24,9 +24,14 @@
             </ul>
         </div>
         <div id="pageArea">
-            <input type="button" id="beforeButton" @click="beforePage" class="btn btn-primary btn-sm" value="이전">
-            <span class="showPage">{{page}}</span>/ <span class="showPage">{{totalPage}}</span>
-            <input type="button" id="nextButton" @click="nextPage" class="btn btn-primary btn-sm" value="다음">
+            <input type="text" id="searchInput"   placeholder="상품 이름을 적어주세요">
+            <input type="button" id="searchButton" @click="doSearch" class="btn btn-primary btn-sm" style="margin-left:10px" value="검색">
+            <br>
+            <div style="margin-top:10px">
+                <input type="button" id="beforeButton" @click="beforePage" class="btn btn-primary btn-sm" value="이전">
+                <span class="showPage">{{page}}</span>/ <span class="showPage">{{totalPage}}</span>
+                <input type="button" id="nextButton" @click="nextPage" class="btn btn-primary btn-sm" value="다음">
+            </div>
         </div>
     </div>
 </template>
@@ -52,6 +57,11 @@ export default {
        }
    },
    methods: {
+       doSearch(){
+            var kind=module.getParam('kind');
+            var keyword=module.getParam('keyword');
+           location.href="/shopMainPage?kind="+kind+"&keyword="+keyword;
+       },
         nextPage(){
             var kind=module.getParam('kind');
             var keyword=module.getParam('keyword');
@@ -81,17 +91,17 @@ export default {
           });
       },
       buyPopUp(id){
-    
         alert(id);
       }
    },
    created() {
         var kind=module.getParam('kind');
+        var keyword=module.getParam('keyword');
         console.log(kind);
         if(module.checkEmthy(kind)){
-             this.getProduct('coffee',1,null);
+             this.getProduct('coffee',1,keyword);
         }else{
-             this.getProduct(kind,1,null);
+             this.getProduct(kind,1,keyword);
         }
    },
    
