@@ -144,5 +144,8 @@ export function remove(clazz) {
         document.getElementsByClassName(clazz)[0].remove();
     }
 }
+export function doOoNotDisabled(id,flag) {
+    document.getElementById(id).disabled=flag;
+}
 
 
