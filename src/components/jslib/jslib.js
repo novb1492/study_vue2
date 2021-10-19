@@ -137,4 +137,12 @@ export function getAllParam() {
     console.log(result);
     return result;
 }
+export function remove(clazz) {
+    var clazzs= document.getElementsByClassName(clazz);
+    var length=clazzs.length;
+    for(var i=0;i<length;i++){
+        document.getElementsByClassName(clazz)[0].remove();
+    }
+}
+
 

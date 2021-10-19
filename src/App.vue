@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <Header />
-    <Sidebar />
     <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from './components/layout/Header.vue';
-import Sidebar from './components/layout/sidebar.vue';
+import Footer from './components/layout/footer.vue';
 export default {
   name: 'App',
   components: {
     Header,
-    Sidebar
+    Footer
   }
 }
 </script>

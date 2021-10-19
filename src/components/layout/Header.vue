@@ -1,5 +1,5 @@
 <template>
-  <div v-if="useHeader">
+  <div v-if="useHeader()">
     <div class="fade-in-box">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
       <a class="navbar-brand" href="/test">WonderLand</a>
