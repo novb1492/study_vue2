@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.useHeader()">
+  <div v-if="useHeader">
     <div class="fade-in-box">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
       <a class="navbar-brand" href="/test">WonderLand</a>
@@ -23,12 +23,12 @@
           <b-nav-item-dropdown text="User" center>
             <div v-if="flag">
               <b-dropdown-item href="#">내구매내역</b-dropdown-item>
-              <b-dropdown-item @click="this.showMyPage">내정보</b-dropdown-item>
-              <b-dropdown-item @click="this.doLogOut">로그아웃</b-dropdown-item>
+              <b-dropdown-item @click="showMyPage">내정보</b-dropdown-item>
+              <b-dropdown-item @click="doLogOut">로그아웃</b-dropdown-item>
             </div>
             <div v-else>
-              <b-dropdown-item @click="this.showJoinPage">회원가입</b-dropdown-item>
-              <b-dropdown-item @click="this.showLoginPage">로그인</b-dropdown-item>
+              <b-dropdown-item @click="showJoinPage">회원가입</b-dropdown-item>
+              <b-dropdown-item @click="showLoginPage">로그인</b-dropdown-item>
             </div>
           </b-nav-item-dropdown>
         </b-navbar-nav>

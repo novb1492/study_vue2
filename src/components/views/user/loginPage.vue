@@ -10,9 +10,9 @@
                     <input type="email" id="email" class="form-control loginInput mt-2" placeholder="이메일을 입력해주세요">
                     <div class="mt-2">pwd</div>
                     <input type="password" id="pwd" class="form-control loginInput mt-2" placeholder="비밀번호를 입력해주세요">
-                    <input type="button" value="로그인" class="btn btn-success btn btn-default btn-sm mt-3"  @click="this.tryLogin">
-                    <input type="button" class="btn btn-success btn btn-default btn-sm mt-3" style="margin-left:5px;" value="네이버 로그인" @click="this.callNaverLogin" >
-                    <input type="button" class="btn btn-success btn btn-default btn-sm mt-3" style="margin-left:5px;" value="카카오 로그인" @click="this.callKakaoLogin">
+                    <input type="button" value="로그인" class="btn btn-success btn btn-default btn-sm mt-3"  @click="tryLogin">
+                    <input type="button" class="btn btn-success btn btn-default btn-sm mt-3" style="margin-left:5px;" value="네이버 로그인" @click="callNaverLogin" >
+                    <input type="button" class="btn btn-success btn btn-default btn-sm mt-3" style="margin-left:5px;" value="카카오 로그인" @click="callKakaoLogin">
                     <br>
                     <a href="/findEmailPage"><span>이메일찾기</span></a>
                     <a href="/findPwdPage"><span style="margin-left:110px;">비밀번호찾기</span></a>

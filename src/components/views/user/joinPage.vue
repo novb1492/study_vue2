@@ -24,11 +24,11 @@
                     <input type="text" id="address" class="form-control joinInput mt-2" placeholder="주소" disabled>
                     <input type="text" id="detailAddess" class="form-control joinInput mt-2" placeholder="상세주소">
                     <input type="text" id="phone" class="form-control joinInput mt-3" placeholder="핸드폰 번호를 입력 해주세요">
-                    <input type="button" id="sendPhoneButton" class="btn btn-primary" @click="this.sendPhone" value="인증번호전송">
+                    <input type="button" id="sendPhoneButton" class="btn btn-primary" @click="sendPhone" value="인증번호전송">
                     <input type="text" id="randnum" class="form-control joinInput " placeholder="인증번호를 입력해주세요">
-                    <input type="button" id="sendRandButton" class="btn btn-primary" @click="this.sendRand" value="확인" disabled>
+                    <input type="button" id="sendRandButton" class="btn btn-primary" @click="sendRand" value="확인" disabled>
                     <br>
-                    <input type="button" id="tryJoinButton" class="btn btn-success"  @click="this.tryJoin" value="회원가입" style="margin-top: 10%;">
+                    <input type="button" id="tryJoinButton" class="btn btn-success"  @click="tryJoin" value="회원가입" style="margin-top: 10%;">
                 </div>
                 <div class="col">
                 </div>

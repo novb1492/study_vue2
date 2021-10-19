@@ -4,7 +4,7 @@
             <ul v-for="product in this.products" :key="product" >
                 <li> 
                     <div>
-                        <a href="https://google.com" target="_blank"><img :src="product.imgPath"></a>
+                        <a href="#" @click="buyPopUp(product.id)"><img :src="product.imgPath"></a>
                     </div> 
                     {{product.price}} dsds
                 </li>
@@ -33,6 +33,9 @@ export default {
               this.products=result.products;
           });
       },
+      buyPopUp(id){
+        alert(id);
+      }
    },
    created() {
        this.getProduct('coffee',1,null)

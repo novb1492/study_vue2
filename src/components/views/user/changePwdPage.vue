@@ -8,7 +8,7 @@
                         <h4 class="mt-3">한번더 일치하게 입력해주세요</h4>
                         <input type="password" id="pwd2" class="loginInput mt-2" placeholder="4자이상 10자 이하입니다">
                         <br>
-                        <input type="button" value="변경" class="mt-3" id="updateButton" @click="this.tryUpdatePwd">
+                        <input type="button" value="변경" class="mt-3" id="updateButton" @click="tryUpdatePwd">
                         <div id="done"></div>
                     </div>
         
