@@ -1,6 +1,6 @@
 <template>
     <div class="fade-in-box">
-        <a href="/shopMainPage"><h1 id="mainShopText" >WonderLand</h1></a>
+        <a href="/shopMainPage?kind=coffee"><h1 id="mainShopText" >WonderLand</h1></a>
     </div>
     
 

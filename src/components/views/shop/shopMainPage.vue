@@ -1,7 +1,7 @@
 <template>
     <div class="shopMainPage fade-in-box">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar fade-in-box">
-            <span class="fs-4">Menu</span>
+            <span class="fs-4" style="text-align: center;">Menu</span>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto ">
                 <li class="menuul"><a href="/shopMainPage?kind=coffee" ><span  class="menutext">Coffee</span></a></li>
@@ -59,7 +59,7 @@ export default {
    methods: {
        doSearch(){
             var kind=module.getParam('kind');
-            var keyword=module.getParam('keyword');
+            var keyword=document.getElementById('searchInput').value;
            location.href="/shopMainPage?kind="+kind+"&keyword="+keyword;
        },
         nextPage(){
@@ -75,8 +75,15 @@ export default {
         getProduct(kind,page,keyword){
           module.requestGetToServer('http://localhost:8080/product/select?kind='+kind+'&page='+page+'&keyword='+keyword).then(result=>{
               console.log(result);
+              if(!result.flag){
+                  alert(result.message);
+              }
+              if(module.checkEmthy(result.products)){
+                  this.totalPage=1;
+              }else{
+                  this.totalPage=result.totalPage;
+              }
               this.products=result.products;
-              this.totalPage=result.totalPage;
               this.page=page;
               if(page>1){
                 module.doOoNotDisabled('beforeButton',false);
@@ -98,11 +105,7 @@ export default {
         var kind=module.getParam('kind');
         var keyword=module.getParam('keyword');
         console.log(kind);
-        if(module.checkEmthy(kind)){
-             this.getProduct('coffee',1,keyword);
-        }else{
-             this.getProduct(kind,1,keyword);
-        }
+        this.getProduct(kind,1,keyword);
    },
    
 }
