@@ -12,14 +12,22 @@
         <div id="productArea">
             <ul v-for="product in this.products" :key="product" >
                 <li class="itemArea"> 
-                    <div>
-                    <a href="#" @click="clickItem(product.id)"><img :src="product.imgPath"></a>
+                    <div  v-if="product.count>0">
+                        <a href="#" @click="clickItem(product.id)"><img :src="product.imgPath"></a>
                     </div> 
+                    <div v-else>
+                        <img :src="product.imgPath">
+                    </div>
                     <span>{{product.name}}</span>
                     <br>
                     <span >가격</span>: {{product.price}} 
                     <br>
-                    <span>수량</span>:{{product.count}}
+                     <div  v-if="product.count>0">
+                        <span>수량</span>:{{product.count}}
+                    </div> 
+                    <div v-else>
+                        품절되었습니다
+                    </div>
                 </li>
             </ul>
         </div>

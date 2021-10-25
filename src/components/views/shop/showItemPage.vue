@@ -1,23 +1,27 @@
 <template>
     <div class="showItemPage">
         <ul class="oneItemUl">
-            <li>
-                 <span class="oneItemName">{{name}}</span>
+            <li class="oneItemName">
+                 <span >{{name}}</span>
             </li>
-            <li>
-                 <img :src="img" class="oneItemImg">
+            <li class="oneItemImg">
+                 <img :src="img" >
             </li>
-            <li>
-                 <span class="oneItemSize">사이즈:{{size}}</span>
+            <li class="oneItemSize">
+                 <span >사이즈:{{size}}</span>
             </li>
-              <li>
-                 <span class="oneItemPrice">가격:{{price}}</span>
+              <li class="oneItemPrice">
+                 <span >가격:{{price}}</span>
+            </li>
+            <li class="oneItemCount">
+                 <span >잔여수량:{{count}}</span>
             </li>
         </ul>
 
     </div>
 </template>
 <style>
+.oneItemCount{margin-left: -180px;   font-size: 30px;}
 .oneItemPrice{margin-left: -180px;   font-size: 30px;}
 .oneItemSize{margin-left: -180px;   font-size: 30px;}
 .oneItemName{margin-left: -180px; color: pink;  font-size: 40px;}
@@ -31,10 +35,11 @@ export default {
     name:'showItemPage',
      data() {
      return {
-         price:"",
-         name:"",
-         size:"",
-         img:""
+        price:"",
+        name:"",
+        size:"",
+        img:"",
+        count:"",
      }
     },
     methods: {
@@ -50,6 +55,11 @@ export default {
                 this.name=result.name;
                 this.size=result.size;
                 this.img=result.img;
+                this.count=result.count;
+                if(this.count==0){
+                    alert('품절되었습니다');
+                    self.close();
+                }
             });
         }
     },
