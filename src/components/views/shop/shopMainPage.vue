@@ -4,8 +4,8 @@
             <span class="fs-4" style="text-align: center;">Menu</span>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto ">
-                <li class="menuul"><a href="/shopMainPage?kind=coffee" ><span  class="menutext">Coffee</span></a></li>
-                <li class="menuul"><a href="/shopMainPage?kind=cake" ><span  class="menutext">Cake</span></a></li>
+                <li class="menuul"><a href="#coffee" @click="changeList('coffee')" ><span  class="menutext">Coffee</span></a></li>
+                <li class="menuul"><a href="#cake" @click="changeList('cake')" ><span  class="menutext">Cake</span></a></li>
             </ul>
             <hr>
         </div>
@@ -28,9 +28,9 @@
             <input type="button" id="searchButton" @click="doSearch" class="btn btn-primary btn-sm" style="margin-left:10px" value="검색">
             <br>
             <div style="margin-top:10px">
-                <input type="button" id="beforeButton" @click="changePage(1)" class="btn btn-primary btn-sm" value="이전">
+                <input type="button" id="beforeButton" @click="changePage(-1)" class="btn btn-primary btn-sm" value="이전">
                 <span class="showPage">{{page}}</span>/ <span class="showPage">{{totalPage}}</span>
-                <input type="button" id="nextButton" @click="changePage(-1)" class="btn btn-primary btn-sm" value="다음">
+                <input type="button" id="nextButton" @click="changePage(1)" class="btn btn-primary btn-sm" value="다음">
             </div>
         </div>
     </div>
@@ -57,17 +57,23 @@ export default {
        }
    },
    methods: {
+       changeList(kind){
+            this.getProduct(kind,1,"");
+            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword=&page="+1);
+       },
        doSearch(){
             var kind=module.getParam('kind');
             var keyword=document.getElementById('searchInput').value;
-           location.href="/shopMainPage?kind="+kind+"&keyword="+keyword;
+            this.getProduct(kind,1,keyword);
+            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword="+keyword+"&page="+1);
        },
         changePage(num){
             var kind=module.getParam('kind');
             var keyword=module.getParam('keyword');
-            var num2=num*1;
-            this.getProduct(kind,this.page+num2,keyword);
-            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword="+keyword+"&page="+(this.page+num2));
+            var page=module.getParam('page');
+            page=(page*1);
+            this.getProduct(kind,(page+num),keyword);
+            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword="+keyword+"&page="+(page+num));
         },
         getProduct(kind,page,keyword){
           module.requestGetToServer('http://localhost:8080/product/select?kind='+kind+'&page='+page+'&keyword='+keyword).then(result=>{
