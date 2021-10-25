@@ -80,7 +80,7 @@ export default {
     data(){
         return{  
             price:50,
-            flag:this.doLogin(),
+            flag:"",
         }
     },
     methods :{
@@ -100,6 +100,7 @@ export default {
            showOrNot= false;
         }else{
           showOrNot=true;
+          this.doLogin();
         }
         return showOrNot;
       },

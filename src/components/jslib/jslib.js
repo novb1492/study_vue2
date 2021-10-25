@@ -147,5 +147,8 @@ export function remove(clazz) {
 export function doOoNotDisabled(id,flag) {
     document.getElementById(id).disabled=flag;
 }
+export function getValueById(id) {
+    return document.getElementById(id).value;
+}
 
 
