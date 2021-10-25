@@ -58,18 +58,18 @@ export default {
    },
    methods: {
        clickItem(id){
-            alert(id);
+            //alert(id);
             window.open('/showItemPage?detail=one&id='+id,'showItem', 'width=500, height=900','resizable=no');
        },
        changeList(kind){
             this.getProduct(kind,1,"");
-            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword=&page="+1);
+            history.pushState(null, null, "/shopMainPage?detail=all&kind="+kind+"&keyword=&page="+1);
        },
        doSearch(){
             var kind=module.getParam('kind');
             var keyword=document.getElementById('searchInput').value;
             this.getProduct(kind,1,keyword);
-            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword="+keyword+"&page="+1);
+            history.pushState(null, null, "/shopMainPage?detail=all&kind="+kind+"&keyword="+keyword+"&page="+1);
        },
         changePage(num){
             var kind=module.getParam('kind');
@@ -77,10 +77,10 @@ export default {
             var page=module.getParam('page');
             page=(page*1);
             this.getProduct(kind,(page+num),keyword);
-            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword="+keyword+"&page="+(page+num));
+            history.pushState(null, null, "/shopMainPage?detail=all&kind="+kind+"&keyword="+keyword+"&page="+(page+num));
         },
         getProduct(kind,page,keyword){
-          module.requestGetToServer('http://localhost:8080/product/select?kind='+kind+'&page='+page+'&keyword='+keyword).then(result=>{
+          module.requestGetToServer('http://localhost:8080/product/select?detail=all&kind='+kind+'&page='+page+'&keyword='+keyword).then(result=>{
               console.log(result);
               if(!result.flag){
                   alert(result.message);
