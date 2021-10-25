@@ -28,9 +28,9 @@
             <input type="button" id="searchButton" @click="doSearch" class="btn btn-primary btn-sm" style="margin-left:10px" value="검색">
             <br>
             <div style="margin-top:10px">
-                <input type="button" id="beforeButton" @click="beforePage" class="btn btn-primary btn-sm" value="이전">
+                <input type="button" id="beforeButton" @click="changePage(1)" class="btn btn-primary btn-sm" value="이전">
                 <span class="showPage">{{page}}</span>/ <span class="showPage">{{totalPage}}</span>
-                <input type="button" id="nextButton" @click="nextPage" class="btn btn-primary btn-sm" value="다음">
+                <input type="button" id="nextButton" @click="changePage(-1)" class="btn btn-primary btn-sm" value="다음">
             </div>
         </div>
     </div>
@@ -62,15 +62,12 @@ export default {
             var keyword=document.getElementById('searchInput').value;
            location.href="/shopMainPage?kind="+kind+"&keyword="+keyword;
        },
-        nextPage(){
+        changePage(num){
             var kind=module.getParam('kind');
             var keyword=module.getParam('keyword');
-            this.getProduct(kind,this.page+1,keyword);
-        },
-        beforePage(){
-            var kind=module.getParam('kind');
-            var keyword=module.getParam('keyword');
-            this.getProduct(kind,this.page-1,keyword);
+            var num2=num*1;
+            this.getProduct(kind,this.page+num2,keyword);
+            history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword="+keyword+"&page="+(this.page+num2));
         },
         getProduct(kind,page,keyword){
           module.requestGetToServer('http://localhost:8080/product/select?kind='+kind+'&page='+page+'&keyword='+keyword).then(result=>{
@@ -104,8 +101,9 @@ export default {
    created() {
         var kind=module.getParam('kind');
         var keyword=module.getParam('keyword');
+        var page=module.getParam('page');
         console.log(kind);
-        this.getProduct(kind,1,keyword);
+        this.getProduct(kind,page,keyword);
    },
    
 }
