@@ -66,8 +66,8 @@ export default {
    },
    methods: {
        clickItem(id){
-            //alert(id);
-            window.open('/showItemPage?detail=one&id='+id,'showItem'+id, 'width=500, height=900','resizable=no');
+            var kind=module.getParam('kind');
+            window.open('/showItemPage?detail=one&id='+id+'&kind='+kind,'showItem'+id, 'width=500, height=900','resizable=no');
        },
        changeList(kind){
             this.getProduct(kind,1,"");

@@ -20,8 +20,14 @@
                 <input type="number" id="count" class="choiceCountInput"  :placeholder="'최대 구매수량 '+count" :max="count" min="1">
             </li>
              <li class="minusMaginLeft mt-4">
-                <input type="button" @click="buy" value="구매">
-                <input type="button" style="margin-left:20px;" value="장바구니 담기">
+                <div  v-if="flag">
+                    <input type="button" @click="buy('card')" value="카드구매">
+                    <input type="button" @click="buy('vbank')" value="가상계좌구매">
+                    <input type="button" style="margin-left:20px;" value="장바구니 담기">
+                </div> 
+                <div v-else>
+                        <span>로그인후 구매/장바구니가능합니다</span>
+                </div>
             </li>
         </ul>
     </div>
@@ -56,12 +62,19 @@ export default {
      }
     },
     methods: {
-        buy(){
+        buy(buykind){
             var id=module.getParam('id');
             var count=module.getValueById('count');
+            var kind=module.getParam('kind');
+            var array=module.create2DArray(1,2);
+            array[0][0]=id;
+            array[0][1]=count;
+            console.log(array,buykind);
             let data=JSON.stringify({
-                "id":id,
-                "count":count
+                "buy":array,
+                "buyKind":buykind,
+                "kind":kind
+
             }); 
             module.requestPostToServer('http://localhost:8080/api/product/buy',data).then(reuslt=>{
                 console.log(reuslt);

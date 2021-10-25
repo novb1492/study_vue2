@@ -150,5 +150,11 @@ export function doOoNotDisabled(id,flag) {
 export function getValueById(id) {
     return document.getElementById(id).value;
 }
-
+export function create2DArray(rows, columns) {
+    var arr = new Array(rows);
+    for (var i = 0; i < rows; i++) {
+        arr[i] = new Array(columns);
+    }
+    return arr;
+}
 
