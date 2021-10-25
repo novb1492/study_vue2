@@ -24,7 +24,7 @@ export default {
         userfooter(){
             var showOrNot=true;
             var uri=location.pathname;
-            if(uri=='/'||uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'||uri=='/findEmailPage'||uri=='/changePhonePage'){
+            if(uri=='/'||uri=='/joinPage'||uri=='/loginPage'||uri=='/myPage'||uri=='/findPwdPage'||uri=='/findEmailPage'||uri=='/changePhonePage'||uri=='/showItemPage'){
                 showOrNot=false;
             }else{
                 showOrNot=true;

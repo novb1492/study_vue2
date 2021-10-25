@@ -13,6 +13,7 @@ import changePwdPage from './components/views/user/changePwdPage.vue';
 import findEmailPage from './components/views/user/findEmailPage.vue';
 import changePhonePage from './components/views/user/changePhonePage.vue';
 import shopMainPage from './components/views/shop/shopMainPage.vue';
+import showItemPage from './components/views/shop/showItemPage.vue';
 Vue.use(VueRouter);
 
 const router =new VueRouter({
@@ -30,6 +31,7 @@ const router =new VueRouter({
       {path:'/findEmailPage',component: findEmailPage},
       {path:'/changePhonePage',component: changePhonePage},
       {path:'/shopMainPage',component: shopMainPage},
+      {path:'/showItemPage',component: showItemPage},
       {path:'/test',component: test}  
     ]
 });

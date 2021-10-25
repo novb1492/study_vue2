@@ -13,7 +13,7 @@
             <ul v-for="product in this.products" :key="product" >
                 <li class="itemArea"> 
                     <div>
-                    <a href="#" @click="buyPopUp(product.id)"><img :src="product.imgPath"></a>
+                    <a href="#" @click="clickItem(product.id)"><img :src="product.imgPath"></a>
                     </div> 
                     <span>{{product.name}}</span>
                     <br>
@@ -57,6 +57,10 @@ export default {
        }
    },
    methods: {
+       clickItem(id){
+            alert(id);
+            window.open('/showItemPage?detail=one&id='+id,'showItem', 'width=500, height=900','resizable=no');
+       },
        changeList(kind){
             this.getProduct(kind,1,"");
             history.pushState(null, null, "/shopMainPage?kind="+kind+"&keyword=&page="+1);
@@ -100,9 +104,6 @@ export default {
               }
           });
       },
-      buyPopUp(id){
-        alert(id);
-      }
    },
    created() {
         var kind=module.getParam('kind');
