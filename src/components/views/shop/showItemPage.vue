@@ -66,7 +66,7 @@ export default {
         buy(buykind){
             var id=module.getParam('id');
             var count=module.getValueById('count');
-            var kind=module.getParam('kind');
+            var kind="product";
             var array=module.create2DArray(1,2);
             array[0][0]=id;
             array[0][1]=count;
