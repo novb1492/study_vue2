@@ -164,11 +164,36 @@ export function requestbuy(array,buyKind,kind) {
         "kind":kind
 
     }); 
-    requestPostToServer('http://localhost:8080/api/product/buy',data).then(reuslt=>{
-        console.log(reuslt);
-        if(!reuslt.flag){
-            alert(reuslt.message);
-        }
+    return requestPostToServer('http://localhost:8080/api/product/buy',data).then(result=>{
+        return result;
     });
+}
+export function card(SETTLE_PG,result) {
+    SETTLE_PG.pay({
+        "env": "https://tbnpg.settlebank.co.kr",
+        "mchtId": result.mchtId,
+        "method": "card",
+        "trdDt": result.trdDt,    
+        "trdTm": result.trdTm,
+        "mchtTrdNo": result.mchtTrdNo,
+        "mchtName": "WonderLand",
+        "mchtEName": "WonderLand",
+        "pmtPrdtNm": result.itemName,
+        "trdAmt": result.trdAmt,
+        "mchtCustId":result.mchtCustId,
+        "notiUrl": "http://kim80800.iptime.org:8080/auth/settlebank",
+        "nextUrl": "https://localhost:8443/doneSettlebankPage.jsp",
+        "cancUrl": "https://localhost:8443/canceSettlePage.html",
+        "pktHash": result.pktHash,
+        "ui": {
+            "type": "popup",
+            "width": "430",
+            "height": "660"
+        }
+        }, function(rsp){
+            //iframe인경우 온다고 한다
+            console.log('통신완료');
+            console.log(rsp);
+        });      
 }
 

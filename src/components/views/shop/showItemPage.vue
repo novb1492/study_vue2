@@ -43,6 +43,7 @@
 .itemArea{margin-left: -10%;}
 .showItemPage{position: absolute;top:10%; left: 50%;}
 </style>
+<script src="https://tbnpg.settlebank.co.kr/resources/js/SettlePG.js"></script>
 <script>
 import * as module from "../../jslib/jslib.js";
 export default {
@@ -70,7 +71,14 @@ export default {
             array[0][0]=id;
             array[0][1]=count;
             console.log(array,buykind);
-           module.requestbuy(array,buykind,kind);
+           module.requestbuy(array,buykind,kind).then(result=>{
+               console.log(result);
+                  if(!result.flag){
+                    alert(result.message);
+                    return;
+                }
+                module.card(SETTLE_PG,result);
+            });
         },
         getItem(id){
             console.log(id);
@@ -95,6 +103,9 @@ export default {
     created() {
          var id=module.getParam('id');
          this.getItem(id);
+        let recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', 'https://tbnpg.settlebank.co.kr/resources/js/SettlePG.js')
+        document.head.appendChild(recaptchaScript)
     },
 }
 </script>
