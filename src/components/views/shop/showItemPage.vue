@@ -70,18 +70,7 @@ export default {
             array[0][0]=id;
             array[0][1]=count;
             console.log(array,buykind);
-            let data=JSON.stringify({
-                "buy":array,
-                "buyKind":buykind,
-                "kind":kind
-
-            }); 
-            module.requestPostToServer('http://localhost:8080/api/product/buy',data).then(reuslt=>{
-                console.log(reuslt);
-                if(!reuslt.flag){
-                    alert(reuslt.message);
-                }
-            });
+           module.requestbuy(array,buykind,kind);
         },
         getItem(id){
             console.log(id);

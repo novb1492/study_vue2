@@ -157,4 +157,18 @@ export function create2DArray(rows, columns) {
     }
     return arr;
 }
+export function requestbuy(array,buyKind,kind) {
+    let data=JSON.stringify({
+        "buy":array,
+        "buyKind":buyKind,
+        "kind":kind
+
+    }); 
+    requestPostToServer('http://localhost:8080/api/product/buy',data).then(reuslt=>{
+        console.log(reuslt);
+        if(!reuslt.flag){
+            alert(reuslt.message);
+        }
+    });
+}
 
