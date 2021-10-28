@@ -19,6 +19,21 @@
             <li class="minusMaginLeft mt-3">
                 <input type="number" id="count" class="choiceCountInput"  :placeholder="'최대 구매수량 '+count" :max="count" min="1">
             </li>
+            <li class="minusMaginLeft mt-3">
+                쿠폰번호
+                <br>
+                <input type="text" id="coupon" class="choiceCountInput"  >
+            </li>
+            <li class="minusMaginLeft mt-3">
+                할인 코드번호
+                <br>
+                <input type="text" id="code" class="choiceCountInput"  >
+            </li>
+            <li class="minusMaginLeft mt-3">
+                포인트 사용 금액
+                <br>
+                <input type="number" id="point" class="choiceCountInput">
+            </li>
              <li class="minusMaginLeft mt-4">
                 <div  v-if="flag">
                     <input type="button" @click="buy('card')" value="카드구매">
@@ -55,7 +70,7 @@ export default {
         size:"",
         img:"",
         count:"",
-        flag:module.loginCheck('no').then(result=>{
+        flag:module.loginCheck('all').then(result=>{
             console.log(result);
             console.log('loginCheck콜백');
             this.flag=result.flag;

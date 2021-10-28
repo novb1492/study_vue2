@@ -184,7 +184,7 @@ export function card(SETTLE_PG,result) {
             "mchtCustId":result.mchtCustId,
             "notiUrl": "http://kim80800.iptime.org:8080/auth/settlebank",
             "nextUrl": "http://localhost:8080/settle/callback",
-            "cancUrl": "http://localhost:3030/popUpClose",
+            "cancUrl": "http://localhost:8080/settle/callbac",
             "pktHash": result.pktHash,
             "ui": {
                 "type": "popup",
