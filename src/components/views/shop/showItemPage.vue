@@ -84,9 +84,15 @@ export default {
             var id=module.getParam('id');
             var count=module.getValueById('count');
             var kind="product";
-            var array=module.create2DArray(1,2);
+            var coupon=module.getValueById('coupon');
+            var code=module.getValueById('code');
+            var point=module.getValueById('point');
+            var array=module.create2DArray(1,5); 
             array[0][0]=id;
             array[0][1]=count;
+            array[0][2]=coupon;
+            array[0][3]=code;
+            array[0][4]=point;
             console.log(array,buykind);
            module.requestbuy(array,buykind,kind).then(result=>{
                console.log(result);
