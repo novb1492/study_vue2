@@ -32,7 +32,7 @@
             <li class="minusMaginLeft mt-3">
                 포인트 사용 금액
                 <br>
-                <input type="number" id="point" class="choiceCountInput">
+                <input type="number" id="point" class="choiceCountInput" :placeholder="'보유포인트 '+point" :max="point" min="0">
             </li>
              <li class="minusMaginLeft mt-4">
                 <div  v-if="flag">
@@ -70,10 +70,12 @@ export default {
         size:"",
         img:"",
         count:"",
+        point:"",
         flag:module.loginCheck('all').then(result=>{
             console.log(result);
             console.log('loginCheck콜백');
             this.flag=result.flag;
+            this.point=result.point;
             })
      }
     },
