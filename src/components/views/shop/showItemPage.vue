@@ -4,8 +4,8 @@
             <li class="oneItemName minusMaginLeft">
                  <span >{{name}}</span>
             </li>
-            <li class="oneItemImg minusMaginLeft">
-                 <img :src="img" >
+            <li class="oneItemImg " >
+                 <img :src="img" style="margin-left: -165px;" >
             </li>
             <li class="oneItemSize minusMaginLeft">
                  <span >사이즈:{{size}}</span>
@@ -22,12 +22,16 @@
             <li class="minusMaginLeft mt-3">
                 쿠폰번호
                 <br>
-                <input type="text" id="coupon" class="choiceCountInput"  >
+                쿠폰이 여러장이라면 ,로 나눠서 입력해주세요
+                <br>
+                <input type="text" id="coupon" class="choiceCountInput" placeholder="쿠폰은 1대1로 사용됩니다"  >
             </li>
             <li class="minusMaginLeft mt-3">
                 할인 코드번호
                 <br>
-                <input type="text" id="code" class="choiceCountInput"  >
+                할인 코드번호가 여러장이라면 ,로 나눠서 입력해주세요
+                <br>
+                <input type="text" id="code" class="choiceCountInput"  placeholder="할인코드는 1대1로 사용됩니다">
             </li>
             <li class="minusMaginLeft mt-3">
                 포인트 사용 금액
@@ -92,9 +96,12 @@ export default {
             array[0][1]=count;
             array[0][2]=coupon;
             array[0][3]=code;
-            array[0][4]=point;
+            /*array[1][0]=3;
+            array[1][1]=1;
+            array[1][2]="";
+            array[1][3]="";*/
             console.log(array,buykind);
-           module.requestbuy(array,buykind,kind).then(result=>{
+           module.requestbuy(array,buykind,kind,point).then(result=>{
                console.log(result);
                   if(!result.flag){
                     alert(result.message);
