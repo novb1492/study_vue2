@@ -33,21 +33,23 @@
                 <br>
                 <input type="text" id="code" class="choiceCountInput"  placeholder="할인코드는 1대1로 사용됩니다">
             </li>
-            <li class="minusMaginLeft mt-3">
-                포인트 사용 금액
-                <br>
-                <input type="number" id="point" class="choiceCountInput" :placeholder="'보유포인트 '+point" :max="point" min="0">
-            </li>
-             <li class="minusMaginLeft mt-4">
                 <div  v-if="flag">
-                    <input type="button" @click="buy('card')" value="카드구매">
-                    <input type="button" @click="buy('vbank')" value="가상계좌구매">
-                    <input type="button" style="margin-left:20px;" value="장바구니 담기">
+                    <li class="minusMaginLeft mt-3">
+                        포인트 사용 금액
+                        <br>
+                        <input type="number" id="point" class="choiceCountInput" :placeholder="'보유포인트 '+point" :max="point" min="0">
+                    </li>
+                    <li class="minusMaginLeft mt-4">
+                        <input type="button" @click="buy('card')" value="카드구매">
+                        <input type="button" @click="buy('vbank')" value="가상계좌구매">
+                        <input type="button" style="margin-left:20px;" value="장바구니 담기">
+                    </li>
                 </div> 
                 <div v-else>
+                    <li class="minusMaginLeft mt-4">                        
                         <span>로그인후 구매/장바구니가능합니다</span>
+                    </li>
                 </div>
-            </li>
         </ul>
     </div>
 </template>
@@ -96,10 +98,10 @@ export default {
             array[0][1]=count;
             array[0][2]=coupon;
             array[0][3]=code;
-            /*array[1][0]=3;
+           /* array[1][0]=3;
             array[1][1]=1;
             array[1][2]="";
-            array[1][3]="";*/
+            array[1][3]="code4";*/
             console.log(array,buykind);
            module.requestbuy(array,buykind,kind,point).then(result=>{
                console.log(result);
