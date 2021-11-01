@@ -40,9 +40,10 @@
                         <input type="number" id="point" class="choiceCountInput" :placeholder="'보유포인트 '+point" :max="point" min="0">
                     </li>
                     <li class="minusMaginLeft mt-4">
-                        <input type="button" @click="buy('card')" value="카드구매">
-                        <input type="button" @click="buy('vbank')" value="가상계좌구매">
-                        <input type="button" style="margin-left:20px;" value="장바구니 담기">
+                        <input type="button" @click="buy('card')" class="btn btn-outline-primary buyButtonsMl" value="카드구매">
+                        <input type="button" @click="buy('vbank')" class="btn btn-outline-primary buyButtonsMl" value="가상계좌구매">
+                        <input type="button"  class="btn btn-outline-primary buyButtonsMl" value="카카오페이">
+                        <input type="button" class="btn btn-outline-primary buyButtonsMl" value="장바구니 담기">
                     </li>
                 </div> 
                 <div v-else>
@@ -54,6 +55,7 @@
     </div>
 </template>
 <style>
+.buyButtonsMl{margin-left:10px;}
 .choiceCountInput{width: 300px; height: 30px;}
 .minusMaginLeft{margin-left: -180px;}
 .oneItemCount{  font-size: 20px;}

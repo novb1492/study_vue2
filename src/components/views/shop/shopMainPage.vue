@@ -33,12 +33,12 @@
         </div>
         <div id="pageArea">
             <input type="text" id="searchInput"   placeholder="상품 이름을 적어주세요">
-            <input type="button" id="searchButton" @click="doSearch" class="btn btn-primary btn-sm" style="margin-left:10px" value="검색">
+            <input type="button" id="searchButton" @click="doSearch" class="btn btn-outline-primary btn-sm" style="margin-left:10px" value="검색">
             <br>
             <div style="margin-top:10px">
-                <input type="button" id="beforeButton" @click="changePage(-1)" class="btn btn-primary btn-sm" value="이전">
+                <input type="button" id="beforeButton" @click="changePage(-1)" class="btn btn-outline-primary btn-sm" value="이전">
                 <span class="showPage">{{page}}</span>/ <span class="showPage">{{totalPage}}</span>
-                <input type="button" id="nextButton" @click="changePage(1)" class="btn btn-primary btn-sm" value="다음">
+                <input type="button" id="nextButton" @click="changePage(1)" class="btn btn-outline-primary btn-sm" value="다음">
             </div>
         </div>
     </div>

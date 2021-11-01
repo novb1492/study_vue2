@@ -7,10 +7,10 @@
                 <div class="col">
                     <div style="margin-top:40px"><h4>찾으실 이메일을 입력해주세요</h4></div>
                     <input type="email" id="email" placeholder="이메일을 입력해주세요" class="form-control joinInput">
-                    <input type="button" class="btn btn-primary btn btn-default btn-sm" value="인증번호 전송" id="sendEmail" @click="sendEmail" style="margin-top:10px;">
+                    <input type="button" class="btn btn-outline-primary btn btn-default btn-sm" value="인증번호 전송" id="sendEmail" @click="sendEmail" style="margin-top:10px;">
                     <div style="margin-top:10px;"><h4>인증번호를 입력해주세요</h4></div>
                     <input type="text" id="randnum" placeholder="인증번호를 입력해주세요" class="form-control joinInput" >
-                    <input type="button" class="btn btn-primary btn btn-default btn-sm" @click="sendRandnum"  id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
+                    <input type="button" class="btn btn-outline-primary btn btn-default btn-sm" @click="sendRandnum"  id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
                 </div>
                 <div class="col">
                 </div>

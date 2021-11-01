@@ -3,10 +3,10 @@
         <div class="center">
             <div>새로 사용하실 핸드폰 번호를 입력해주세요</div>
             <input type="text" id="phone" placeholder="핸드폰번호를 입력해주세요" class="form-control joinInput">
-            <input type="button" class="btn btn-primary btn btn-default btn-sm" value="인증번호 전송" id="sendPhone" @click="sendPhone" style="margin-top:10px;">
+            <input type="button" class="btn btn-outline-primary btn btn-default btn-sm" value="인증번호 전송" id="sendPhone" @click="sendPhone" style="margin-top:10px;">
             <div style="margin-top:10px;">인증번호를 입력해주세요</div>
             <input type="text" id="randnum" placeholder="인증번호를 입력해주세요" class="form-control joinInput" >
-            <input type="button" class="btn btn-primary btn btn-default btn-sm" @click="sendRandnum"  id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
+            <input type="button" class="btn btn-outline-primary btn btn-default btn-sm" @click="sendRandnum"  id="sendRandNum" value="확인" style="margin-top:10px;" disabled>
         </div>
     </div>
 </template>
