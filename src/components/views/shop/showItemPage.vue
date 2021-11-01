@@ -40,10 +40,10 @@
                         <input type="number" id="point" class="choiceCountInput" :placeholder="'보유포인트 '+point" :max="point" min="0">
                     </li>
                     <li class="minusMaginLeft mt-4">
-                        <input type="button" @click="buy('card')" class="btn btn-outline-primary buyButtonsMl" value="카드구매">
-                        <input type="button" @click="buy('vbank')" class="btn btn-outline-primary buyButtonsMl" value="가상계좌구매">
-                        <input type="button"  class="btn btn-outline-primary buyButtonsMl" value="카카오페이">
-                        <input type="button" class="btn btn-outline-primary buyButtonsMl" value="장바구니 담기">
+                        <input type="button" @click="buy('card')" class="btn btn-outline-primary buyButtonsMl btn-sm" value="카드구매">
+                        <input type="button" @click="buy('vbank')" class="btn btn-outline-primary buyButtonsMl btn-sm" value="가상계좌구매">
+                        <input type="button"  class="btn btn-outline-primary buyButtonsMl btn-sm" value="카카오페이">
+                        <input type="button" class="btn btn-outline-primary buyButtonsMl btn-sm" value="장바구니 담기">
                     </li>
                 </div> 
                 <div v-else>
@@ -100,18 +100,21 @@ export default {
             array[0][1]=count;
             array[0][2]=coupon;
             array[0][3]=code;
-           /* array[1][0]=3;
-            array[1][1]=1;
-            array[1][2]="";
-            array[1][3]="code4";*/
             console.log(array,buykind);
+             alert(buykind);
            module.requestbuy(array,buykind,kind,point).then(result=>{
                console.log(result);
                   if(!result.flag){
                     alert(result.message);
                     return;
                 }
-                module.card(SETTLE_PG,result);
+                if(buykind=='card'){
+                    module.card(SETTLE_PG,result);
+                }else if('vbank'){
+                    alert('vbank');
+                    module.vbank(SETTLE_PG,result);
+                }
+                
             });
         },
         getItem(id){

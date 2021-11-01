@@ -184,7 +184,7 @@ export function card(SETTLE_PG,result) {
             "mchtCustId":result.mchtCustId,
             "notiUrl": "http://kim80800.iptime.org:8080/auth/settlebank",
             "nextUrl": "http://localhost:8080/settle/callback",
-            "cancUrl": "http://localhost:8080/settle/callbac",
+            "cancUrl": "http://localhost:8080/settle/callback",
             "pktHash": result.pktHash,
             "ui": {
                 "type": "popup",
@@ -198,5 +198,37 @@ export function card(SETTLE_PG,result) {
             });      
     
     
+}
+export function vbank(SETTLE_PG,result) {
+ 
+    SETTLE_PG.pay({
+        "env": "https://tbnpg.settlebank.co.kr",
+        "mchtId": result.mchtId,
+        "method": "vbank",
+        "trdDt": result.trdDt,    
+        "trdTm": result.trdTm,
+        "expireDt":result.expireDt,
+        "mchtTrdNo":result.mchtTrdNo,
+        "mchtName": "WonderLand",
+        "mchtEName": "WonderLand",
+        "pmtPrdtNm": result.itemName,
+        "trdAmt": result.trdAmt,
+        "mchtCustId":result.mchtCustId,
+        "notiUrl": "http://kim80800.iptime.org:8080/auth/settlebank",
+        "nextUrl": "http://localhost:8080/settle/callback",
+        "cancUrl": "http://localhost:8080/settle/callback",
+        "pktHash": result.pktHash,
+        "ui": {
+            "type": "popup",
+            "width": "430",
+            "height": "660"
+        }
+        }, function(rsp){
+            //iframe인경우 온다고 한다
+            console.log('통신완료');
+            console.log(rsp);
+        });      
+
+
 }
 
