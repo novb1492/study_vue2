@@ -42,7 +42,7 @@
                     <li class="minusMaginLeft mt-4">
                         <input type="button" @click="buy('card')" class="btn btn-outline-primary buyButtonsMl btn-sm" value="카드구매">
                         <input type="button" @click="buy('vbank')" class="btn btn-outline-primary buyButtonsMl btn-sm" value="가상계좌구매">
-                        <input type="button"  class="btn btn-outline-primary buyButtonsMl btn-sm" value="카카오페이">
+                        <input type="button" @click="buy('kakaoPay')"  class="btn btn-outline-primary buyButtonsMl btn-sm" value="카카오페이">
                         <input type="button" class="btn btn-outline-primary buyButtonsMl btn-sm" value="장바구니 담기">
                     </li>
                 </div> 
@@ -101,7 +101,6 @@ export default {
             array[0][2]=coupon;
             array[0][3]=code;
             console.log(array,buykind);
-             alert(buykind);
            module.requestbuy(array,buykind,kind,point).then(result=>{
                console.log(result);
                   if(!result.flag){
@@ -110,9 +109,10 @@ export default {
                 }
                 if(buykind=='card'){
                     module.card(SETTLE_PG,result);
-                }else if('vbank'){
-                    alert('vbank');
+                }else if(buykind=='vbank'){
                     module.vbank(SETTLE_PG,result);
+                }else if(buykind=='kakaoPay'){
+                    window.open(result.message, 'width=500, height=900','resizable=no');
                 }
                 
             });
